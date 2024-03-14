@@ -1,7 +1,7 @@
 @import '@/scss/import.scss';
 
 .products {
-	padding: max(10rem, 160px) var(--gutter) max(5rem, 80px);
+	padding: max(10rem, 160px) var(--gutter) max(7rem, 112px);
 	ul {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
