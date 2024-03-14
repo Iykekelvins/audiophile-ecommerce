@@ -5,6 +5,7 @@ import { metaDataOptions } from '@/utils/metadata'
 
 import Lenis from '@/components/Lenis'
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
 	title: {
@@ -28,6 +29,7 @@ export default function RootLayout({
 					<main>
 						<Navbar />
 						{children}
+						<Footer />
 					</main>
 				</body>
 			</Lenis>

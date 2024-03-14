@@ -1,0 +1,72 @@
+@import '@/scss/import.scss';
+
+.footer {
+	background: var(--dark-grey);
+	padding: max(2.5rem, 40px) var(--gutter) max(1.5rem, 24px);
+	position: relative;
+
+	&-top {
+		@extend %jcsb;
+		ul {
+			@extend %aic;
+			gap: max(1.5rem, 24px);
+			li {
+				@extend %font-13;
+				font-weight: 700;
+				a {
+					color: var(--white);
+					text-transform: uppercase;
+					letter-spacing: 2px;
+					transition: var(--transition);
+				}
+				&:hover {
+					a {
+						color: var(--dark-orange);
+					}
+				}
+			}
+		}
+	}
+	p {
+		@extend %font-15;
+		color: var(--white);
+		line-height: 1.5;
+		opacity: 0.5;
+		max-width: max(33.75rem, 540px);
+		&.copyright {
+			padding-top: max(4rem, 64px);
+		}
+	}
+
+	&-center {
+		@extend %jcsb;
+		align-items: flex-end;
+		margin-top: max(2rem, 32px);
+
+		ul {
+			@extend %aic;
+			gap: max(1rem, 16px);
+			svg {
+				cursor: pointer;
+				path {
+					transition: var(--transition);
+				}
+				&:hover {
+					path {
+						fill: var(--dark-orange);
+					}
+				}
+			}
+		}
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: var(--gutter);
+		width: max(100px, 6.25rem);
+		height: max(4px, 0.25rem);
+		background: var(--dark-orange);
+	}
+}
