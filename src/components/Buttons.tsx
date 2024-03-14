@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn'
 import { ReactNode } from 'react'
 
 interface IButton {
-	type: 'primary' | 'secondary' | 'plain'
+	type: 'primary' | 'secondary' | 'tertiary' | 'plain'
 	children: ReactNode
 }
 
@@ -15,6 +15,8 @@ const Buttons = ({ type, children }: IButton) => {
 					? 'btn-primary'
 					: type === 'secondary'
 					? 'btn-secondary'
+					: type === 'tertiary'
+					? 'btn-tertiary'
 					: 'btn-plain'
 			)}>
 			{children}

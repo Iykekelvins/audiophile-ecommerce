@@ -69,6 +69,8 @@ input[type='number'] {
 	@extend %center;
 	@extend %font-13;
 	gap: max(0.5rem, 8px);
+	height: max(48px, 3rem);
+	width: max(10rem, 160px);
 	letter-spacing: 1px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -76,8 +78,6 @@ input[type='number'] {
 	&-primary {
 		color: var(--white);
 		background: var(--dark-orange);
-		height: max(48px, 3rem);
-		width: max(10rem, 160px);
 		&:hover {
 			background: var(--light-orange);
 		}
@@ -86,8 +86,6 @@ input[type='number'] {
 	&-secondary {
 		color: var(--white);
 		border: 1px solid var(--black);
-		height: max(48px, 3rem);
-		width: max(10rem, 160px);
 		background: transparent;
 		&:hover {
 			color: var(--white);
@@ -95,8 +93,18 @@ input[type='number'] {
 		}
 	}
 
+	&-tertiary {
+		color: var(--white);
+		background: var(--black);
+		&:hover {
+			background: #4c4c4c;
+		}
+	}
+
 	&-plain {
 		color: var(--black);
+		width: unset;
+		height: unset;
 		span {
 			opacity: 0.5;
 		}

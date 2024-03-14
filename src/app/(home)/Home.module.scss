@@ -32,5 +32,55 @@
 				line-height: 1.5;
 			}
 		}
+
+		&-right {
+			img {
+				height: max(650px, 40.625rem);
+				width: max(650px, 40.625rem);
+			}
+		}
+	}
+
+	&-preview {
+		padding: 0 var(--gutter) max(5rem, 80px);
+
+		&-top {
+			@extend %jcsb;
+			height: max(35rem, 560px);
+			padding: 0 max(6rem, 96px);
+			border-radius: max(8px, 0.5rem);
+			background: var(--dark-orange);
+			background-image: url(/icons/pattern-circles.svg);
+			background-repeat: no-repeat;
+			background-position: -10rem 0rem;
+			background-size: 59rem;
+			overflow: hidden;
+
+			&-left {
+				margin-top: max(9rem, 144px);
+				img {
+					height: max(30.813rem, 493px);
+					width: max(400px, 25rem);
+				}
+			}
+
+			&-right {
+				display: flex;
+				flex-direction: column;
+				gap: max(1.5rem, 24px);
+				h2 {
+					@extend %font-56;
+					color: var(--white);
+					letter-spacing: 2px;
+				}
+				p {
+					@extend %font-15;
+					color: var(--white);
+					opacity: 0.75;
+					line-height: 1.5;
+					max-width: max(21.875rem, 349px);
+				}
+			}
+		}
 	}
 }

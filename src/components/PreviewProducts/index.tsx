@@ -79,11 +79,13 @@ const PreviewProduct = ({ img, title, href, width, height }: IProduct) => {
 
 const PreviewProducts = () => {
 	return (
-		<ul className={c.products}>
-			{previewProducts.map((product) => (
-				<PreviewProduct key={product.title} {...product} />
-			))}
-		</ul>
+		<section className={c.products}>
+			<ul>
+				{previewProducts.map((product) => (
+					<PreviewProduct key={product.title} {...product} />
+				))}
+			</ul>
+		</section>
 	)
 }
 

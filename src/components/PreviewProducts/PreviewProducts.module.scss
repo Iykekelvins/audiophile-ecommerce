@@ -1,15 +1,16 @@
 @import '@/scss/import.scss';
 
 .products {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: max(1.5rem, 24px);
-	padding: max(10rem, 160px) var(--gutter);
+	padding: max(10rem, 160px) var(--gutter) max(5rem, 80px);
+	ul {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: max(1.5rem, 24px);
+	}
 	&-item {
 		@extend %aic;
 		flex-direction: column;
 		justify-content: flex-end;
-		width: max(21.875rem, 350px);
 		height: max(12.75rem, 204px);
 		border-radius: max(8px, 0.5rem);
 		background: var(--grey);
