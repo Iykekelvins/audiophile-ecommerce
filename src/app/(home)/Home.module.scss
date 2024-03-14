@@ -1,4 +1,36 @@
 @import '@/scss/import.scss';
 
 .home {
+	&-hero {
+		@extend %jcsb;
+		background: var(--bg-color);
+		padding: max(2rem, 32px) var(--gutter);
+		border-bottom-left-radius: max(8px, 0.5rem);
+		border-bottom-right-radius: max(8px, 0.5rem);
+
+		&-left {
+			display: flex;
+			flex-direction: column;
+			gap: max(2rem, 32px);
+			h4 {
+				@extend %font-14;
+				color: var(--white);
+				opacity: 0.5;
+				letter-spacing: 10px;
+			}
+			h1 {
+				@extend %font-56;
+				color: var(--white);
+				letter-spacing: 2px;
+				text-transform: uppercase;
+			}
+			p {
+				@extend %font-15;
+				color: var(--white);
+				opacity: 0.75;
+				max-width: max(21.875rem, 349px);
+				line-height: 1.5;
+			}
+		}
+	}
 }

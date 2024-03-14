@@ -64,3 +64,31 @@ input[type='number'] {
 		margin: 0;
 	}
 }
+
+.btn {
+	@extend %center;
+	@extend %font-13;
+	letter-spacing: 1px;
+	font-weight: 700;
+	text-transform: uppercase;
+	height: max(48px, 3rem);
+	width: max(10rem, 160px);
+	transition: var(--transition);
+	&-primary {
+		color: var(--white);
+		background: var(--dark-orange);
+		&:hover {
+			background: var(--light-orange);
+		}
+	}
+
+	&-secondary {
+		color: var(--white);
+		border: 1px solid var(--black);
+		background: transparent;
+		&:hover {
+			color: var(--white);
+			background: var(--black);
+		}
+	}
+}

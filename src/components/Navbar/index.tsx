@@ -8,21 +8,23 @@ import c from './Navbar.module.scss'
 const Navbar = () => {
 	return (
 		<nav className={c.navbar}>
-			<Link href='/'>
-				<Image src='/icons/logo.svg' alt='audiophile logo' width={143} height={25} />
-			</Link>
+			<div className={c['navbar-inner']}>
+				<Link href='/'>
+					<Image src='/icons/logo.svg' alt='audiophile logo' width={143} height={25} />
+				</Link>
 
-			<ul>
-				{navLinks.map((link) => (
-					<li key={link.name}>
-						<Link href={link.href}>{link.name}</Link>
-					</li>
-				))}
-			</ul>
+				<ul>
+					{navLinks.map((link) => (
+						<li key={link.name}>
+							<Link href={link.href}>{link.name}</Link>
+						</li>
+					))}
+				</ul>
 
-			<button>
-				<Image src='/icons/cart.svg' height={20} width={23} alt='cart icon' />
-			</button>
+				<button>
+					<Image src='/icons/cart.svg' height={20} width={23} alt='cart icon' />
+				</button>
+			</div>
 		</nav>
 	)
 }
