@@ -15,6 +15,7 @@ const Bottom = () => {
 					alt='picture of our yx1 earphones'
 				/>
 			</div>
+
 			<div className={c['home-preview-bottom-right']}>
 				<h3>YX1 EARPHONES</h3>
 				<Link href='/earphones/yx1'>
