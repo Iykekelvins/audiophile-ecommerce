@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Buttons from '@/components/Buttons'
 
 import c from '../Home.module.scss'
+import Image from 'next/image'
 
 const Center = () => {
 	return (
@@ -12,6 +13,8 @@ const Center = () => {
 					<Buttons type='secondary'>see product</Buttons>
 				</Link>
 			</div>
+
+			<Image src='/images/zx7-img.png' height={320} width={1100} alt='' />
 		</div>
 	)
 }
