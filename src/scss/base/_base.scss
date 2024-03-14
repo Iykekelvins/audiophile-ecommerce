@@ -6,6 +6,8 @@ body {
 	scroll-behavior: initial;
 }
 main {
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
 }
 
@@ -45,6 +47,8 @@ html {
 }
 
 body {
+	font-family: 'Manrope', sans-serif;
+	font-weight: normal;
 }
 
 input[type='number'] {

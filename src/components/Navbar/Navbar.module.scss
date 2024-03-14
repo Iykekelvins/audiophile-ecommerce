@@ -1,0 +1,28 @@
+@import '@/scss/import.scss';
+
+.navbar {
+	@extend %jcsb;
+	background: var(--bg-color);
+	padding: max(1.5rem, 24px) var(--gutter);
+	border-bottom: 0.7px solid var(--white);
+
+	ul {
+		@extend %aic;
+		gap: max(1.5rem, 24px);
+		li {
+			@extend %font-13;
+			font-weight: 700;
+			a {
+				color: var(--white);
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				transition: var(--transition);
+			}
+			&:hover {
+				a {
+					color: var(--dark-orange);
+				}
+			}
+		}
+	}
+}
