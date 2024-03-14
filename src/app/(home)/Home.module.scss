@@ -43,6 +43,9 @@
 
 	&-preview {
 		padding: 0 var(--gutter) max(5rem, 80px);
+		display: flex;
+		flex-direction: column;
+		gap: max(1.5rem, 24px);
 
 		&-top {
 			@extend %jcsb;
@@ -79,6 +82,28 @@
 					opacity: 0.75;
 					line-height: 1.5;
 					max-width: max(21.875rem, 349px);
+				}
+			}
+		}
+
+		&-center {
+			display: flex;
+			align-items: center;
+			border-radius: max(8px, 0.5rem);
+			height: max(320px, 20rem);
+			background-image: url(/images/zx7-img.png);
+			background-repeat: no-repeat;
+			background-size: contain;
+			padding-left: max(4rem, 64px);
+
+			&-left {
+				display: flex;
+				flex-direction: column;
+				gap: max(2rem, 32px);
+				h3 {
+					@extend %font-28;
+					color: var(--black);
+					letter-spacing: 2px;
 				}
 			}
 		}
