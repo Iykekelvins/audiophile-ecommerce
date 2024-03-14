@@ -1,0 +1,35 @@
+@import '@/scss/import.scss';
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: max(1.5rem, 24px);
+	padding: max(10rem, 160px) var(--gutter);
+	&-item {
+		@extend %aic;
+		flex-direction: column;
+		justify-content: flex-end;
+		width: max(21.875rem, 350px);
+		height: max(12.75rem, 204px);
+		border-radius: max(8px, 0.5rem);
+		background: var(--grey);
+		padding-bottom: max(1.5rem, 24px);
+		header {
+			@extend %aic;
+			flex-direction: column;
+			position: relative;
+			top: min(-5rem, -80px);
+			svg {
+				position: absolute;
+				bottom: min(-4rem, -64px);
+			}
+		}
+
+		h4 {
+			@extend %font-18;
+			color: var(--black);
+			letter-spacing: 1.3px;
+			margin-bottom: max(1rem, 16px);
+		}
+	}
+}
