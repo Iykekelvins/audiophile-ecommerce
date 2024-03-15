@@ -179,12 +179,14 @@
 				height: 100%;
 				padding: max(4rem, 32px);
 				gap: max(3rem, 48px);
+				background-size: cover;
+				background-position: 0 -20rem;
 
 				&-left {
 					margin-top: 0;
 					img {
-						height: max(14rem, 237px);
-						width: 100%;
+						height: 207px;
+						width: 172px;
 					}
 				}
 
@@ -207,6 +209,10 @@
 		}
 
 		@include respondMax('mobile3x') {
+			&-top {
+				background-size: contain;
+			}
+
 			&-center {
 				img {
 					&.tablet {
