@@ -1,7 +1,7 @@
-import React from 'react'
+import Earphones from '@/_pages/earphones'
 
-const page = () => {
-	return <div>page</div>
+const EarphonesPage = () => {
+	return <Earphones />
 }
 
-export default page
+export default EarphonesPage

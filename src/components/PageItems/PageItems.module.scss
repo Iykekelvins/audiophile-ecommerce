@@ -13,6 +13,7 @@
 			height: max(35rem, 352px);
 			width: max(33.75rem, 327px);
 			background: var(--grey);
+			border-radius: max(0.5rem, 8px);
 
 			img {
 				height: max(24rem, 243px);
@@ -49,6 +50,30 @@
 		}
 		&:nth-child(even) {
 			flex-direction: row-reverse;
+		}
+
+		@include respondMax('tablet2x') {
+			flex-direction: column;
+			gap: 40px;
+
+			&-img {
+				width: 100%;
+			}
+
+			&-info {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+
+				p {
+					max-width: 100%;
+				}
+			}
+
+			&:nth-child(even) {
+				flex-direction: column;
+			}
 		}
 	}
 }

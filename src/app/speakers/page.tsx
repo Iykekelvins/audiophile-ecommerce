@@ -1,7 +1,7 @@
-import React from 'react'
+import Speakers from '@/_pages/speakers'
 
 const SpeakersPage = () => {
-	return <div>SpeakersPage</div>
+	return <Speakers />
 }
 
 export default SpeakersPage
