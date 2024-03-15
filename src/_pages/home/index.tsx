@@ -1,7 +1,6 @@
 import Hero from './Hero'
 import PreviewProducts from '@/components/PreviewProducts'
 import HomePreview from './HomePreview'
-import AudioGear from '@/components/AudioGear'
 
 import c from './Home.module.scss'
 
@@ -11,7 +10,6 @@ const Home = () => {
 			<Hero />
 			<PreviewProducts />
 			<HomePreview />
-			<AudioGear />
 		</div>
 	)
 }

@@ -6,6 +6,8 @@ import { metaDataOptions } from '@/utils/metadata'
 import Lenis from '@/components/Lenis'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import PreviewProducts from '@/components/PreviewProducts'
+import AudioGear from '@/components/AudioGear'
 
 export const metadata: Metadata = {
 	title: {
@@ -29,6 +31,8 @@ export default function RootLayout({
 					<main>
 						<Navbar />
 						{children}
+						<PreviewProducts isHome />
+						<AudioGear />
 						<Footer />
 					</main>
 				</body>

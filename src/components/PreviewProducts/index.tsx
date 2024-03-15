@@ -1,3 +1,6 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
 import { previewProducts } from '@/utils/mock'
 
 import Image from 'next/image'
@@ -77,15 +80,23 @@ const PreviewProduct = ({ img, title, href, width, height }: IProduct) => {
 	)
 }
 
-const PreviewProducts = () => {
+const PreviewProducts = ({ isHome }: { isHome?: boolean }) => {
+	const pathname = usePathname()
+
 	return (
-		<section className={c.products}>
-			<ul>
-				{previewProducts.map((product) => (
-					<PreviewProduct key={product.title} {...product} />
-				))}
-			</ul>
-		</section>
+		<>
+			{(isHome && pathname !== '/') || !isHome ? (
+				<section className={c.products}>
+					<ul>
+						{previewProducts.map((product) => (
+							<PreviewProduct key={product.title} {...product} />
+						))}
+					</ul>
+				</section>
+			) : (
+				isHome && pathname === '/' && <></>
+			)}
+		</>
 	)
 }
 

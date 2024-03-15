@@ -1,7 +1,7 @@
-import React from 'react'
+import Headphones from '@/_pages/headphones'
 
 const HeadphonesPage = () => {
-	return <div>HeadphonesPage</div>
+	return <Headphones />
 }
 
 export default HeadphonesPage

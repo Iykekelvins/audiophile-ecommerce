@@ -1,7 +1,7 @@
 import React from 'react'
 
-const EarphonesPage = () => {
-	return <div>EarphonesPage</div>
+const page = () => {
+	return <div>page</div>
 }
 
-export default EarphonesPage
+export default page
