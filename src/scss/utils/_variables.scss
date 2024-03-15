@@ -11,4 +11,8 @@
 	// utils
 	--gutter: max(10rem, 24px);
 	--transition: all 0.3s ease;
+
+	@media screen and (max-width: 1200px) {
+		--gutter: max(10px, 6rem);
+	}
 }

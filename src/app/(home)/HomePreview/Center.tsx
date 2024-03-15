@@ -14,7 +14,27 @@ const Center = () => {
 				</Link>
 			</div>
 
-			<Image src='/images/zx7-img.png' height={320} width={1100} alt='' />
+			<Image
+				src='/images/zx7-img.png'
+				height={320}
+				width={1100}
+				alt='picture of our zx7 speakers'
+				className={c.desktop}
+			/>
+			<Image
+				src='/images/zx7-img-tablet.png'
+				height={320}
+				width={1100}
+				alt='picture of our zx7 speakers'
+				className={c.tablet}
+			/>
+			<Image
+				src='/images/zx7-img-mobile.png'
+				height={320}
+				width={1100}
+				alt='picture of our zx7 speakers'
+				className={c.mobile}
+			/>
 		</div>
 	)
 }

@@ -35,4 +35,32 @@
 			height: 100%;
 		}
 	}
+
+	@include respondMax('tablet2x') {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: max(4rem, 64px);
+
+		&-left {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			text-align: center;
+			h2 {
+				max-width: 573px;
+			}
+			p {
+				max-width: 100%;
+			}
+		}
+	}
+
+	@include respondMax('mobile3x') {
+		&-right {
+			img {
+				height: 300px;
+				object-fit: cover;
+			}
+		}
+	}
 }

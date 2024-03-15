@@ -1,8 +1,14 @@
+'use client'
+
+import { useMediaQuery } from '@/hooks/useMediaQuery'
+
 import Image from 'next/image'
 
 import c from './AudioGear.module.scss'
 
 const AudioGear = () => {
+	const isTablet = useMediaQuery('(max-width: 992px)')
+
 	return (
 		<div className={c['audio-gear']}>
 			<div className={c['audio-gear-left']}>
@@ -22,7 +28,7 @@ const AudioGear = () => {
 
 			<div className={c['audio-gear-right']}>
 				<Image
-					src='/images/model-img.png'
+					src={`/images/model-img${isTablet ? '-mobile' : ''}.png`}
 					width={540}
 					height={588}
 					alt='picture our model rocking our pair of headphones'

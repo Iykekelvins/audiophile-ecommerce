@@ -69,4 +69,54 @@
 		height: max(4px, 0.25rem);
 		background: var(--dark-orange);
 	}
+
+	@include respondMax('tablet2x') {
+		&-top {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: max(2rem, 32px);
+		}
+
+		&-center {
+			ul {
+				position: absolute;
+				right: var(--gutter);
+				bottom: max(1.5rem, 24px);
+			}
+		}
+	}
+
+	@include respondMax('mobile3x') {
+		padding-bottom: 100px;
+
+		&-top {
+			align-items: center;
+			gap: 60px;
+			ul {
+				flex-direction: column;
+				gap: 32px;
+			}
+		}
+
+		&-center {
+			margin-top: 50px;
+			ul {
+				left: 50%;
+				right: unset;
+				transform: translate(-50%, 0);
+			}
+		}
+
+		p {
+			text-align: center;
+			&.copyright {
+				padding-top: 50px;
+			}
+		}
+
+		&::before {
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+	}
 }

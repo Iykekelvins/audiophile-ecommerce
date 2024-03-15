@@ -11,7 +11,7 @@
 		@extend %aic;
 		flex-direction: column;
 		justify-content: flex-end;
-		height: max(12.75rem, 204px);
+		height: max(12.75rem, 165px);
 		border-radius: max(8px, 0.5rem);
 		background: var(--grey);
 		padding-bottom: max(1.5rem, 24px);
@@ -19,10 +19,10 @@
 			@extend %aic;
 			flex-direction: column;
 			position: relative;
-			top: min(-5rem, -80px);
+			top: min(-5rem, -40px);
 			svg {
 				position: absolute;
-				bottom: min(-4rem, -64px);
+				bottom: min(-4rem, -50px);
 			}
 		}
 
@@ -31,6 +31,13 @@
 			color: var(--black);
 			letter-spacing: 1.3px;
 			margin-bottom: max(1rem, 16px);
+		}
+	}
+
+	@include respondMax('mobile3x') {
+		ul {
+			grid-template-columns: 1fr;
+			gap: 115px;
 		}
 	}
 }

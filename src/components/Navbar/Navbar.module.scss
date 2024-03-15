@@ -2,12 +2,24 @@
 
 .navbar {
 	background: var(--bg-color);
+	position: sticky;
+	top: 0;
+	z-index: 2;
 
 	&-inner {
 		@extend %jcsb;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		margin: 0 var(--gutter);
 		padding: max(1.5rem, 24px) 0;
+
+		&-left {
+			@extend %aic;
+			gap: max(2rem, 32px);
+			button {
+				display: none;
+			}
+		}
+
 		ul {
 			@extend %aic;
 			gap: max(1.5rem, 24px);
@@ -25,6 +37,18 @@
 						color: var(--dark-orange);
 					}
 				}
+			}
+		}
+	}
+
+	@include respondMax('tablet2x') {
+		ul {
+			display: none;
+		}
+
+		&-inner-left {
+			button {
+				display: block;
 			}
 		}
 	}

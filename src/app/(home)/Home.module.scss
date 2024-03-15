@@ -3,15 +3,17 @@
 .home {
 	&-hero {
 		@extend %jcsb;
+		gap: max(2rem, 32px);
 		background: var(--bg-color);
-		padding: max(2rem, 32px) var(--gutter);
+		padding: 0 var(--gutter);
 		border-bottom-left-radius: max(8px, 0.5rem);
 		border-bottom-right-radius: max(8px, 0.5rem);
+		overflow: hidden;
 
 		&-left {
 			display: flex;
 			flex-direction: column;
-			gap: max(2rem, 32px);
+			gap: max(2rem, 18px);
 			h4 {
 				@extend %font-14;
 				color: var(--white);
@@ -23,12 +25,13 @@
 				color: var(--white);
 				letter-spacing: 2px;
 				text-transform: uppercase;
+				max-width: max(24.75rem, 396px);
 			}
 			p {
 				@extend %font-15;
 				color: var(--white);
 				opacity: 0.75;
-				max-width: max(21.875rem, 349px);
+				max-width: max(21.875rem, 328px);
 				line-height: 1.5;
 			}
 		}
@@ -38,6 +41,27 @@
 				height: max(650px, 40.625rem);
 				width: max(650px, 40.625rem);
 			}
+		}
+		@include respondMax('tablet3x') {
+			background-image: url(/images/hero-img-mobile.png);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			padding: 240px var(--gutter);
+			justify-content: center;
+			margin-top: -40px;
+
+			&-left {
+				align-items: center;
+				text-align: center;
+			}
+
+			&-right {
+				display: none;
+			}
+		}
+		@include respondMax('mobile3x') {
+			padding: 112px var(--gutter);
 		}
 	}
 
@@ -91,7 +115,7 @@
 			display: flex;
 			align-items: center;
 			height: max(320px, 20rem);
-			padding-left: max(4rem, 64px);
+			padding-left: max(4rem, 32px);
 			position: relative;
 			&-left {
 				display: flex;
@@ -110,6 +134,13 @@
 				width: 100%;
 				height: 100%;
 				border-radius: max(8px, 0.5rem);
+				object-fit: cover;
+				&.tablet {
+					display: none;
+				}
+				&.mobile {
+					display: none;
+				}
 			}
 		}
 
@@ -133,11 +164,64 @@
 				flex-direction: column;
 				justify-content: center;
 				gap: max(2rem, 32px);
-				padding: max(4rem, 64px);
+				padding: max(4rem, 24px);
 				h3 {
 					@extend %font-28;
 					color: var(--black);
 					letter-spacing: 2px;
+				}
+			}
+		}
+
+		@include respondMax('tablet2x') {
+			&-top {
+				flex-direction: column;
+				height: 100%;
+				padding: max(4rem, 32px);
+				gap: max(3rem, 48px);
+
+				&-left {
+					margin-top: 0;
+					img {
+						height: max(14rem, 237px);
+						width: 100%;
+					}
+				}
+
+				&-right {
+					align-items: center;
+					text-align: center;
+				}
+			}
+
+			&-center {
+				img {
+					&.desktop {
+						display: none;
+					}
+					&.tablet {
+						display: unset;
+					}
+				}
+			}
+		}
+
+		@include respondMax('mobile3x') {
+			&-center {
+				img {
+					&.tablet {
+						display: none;
+					}
+					&.mobile {
+						display: unset;
+					}
+				}
+			}
+
+			&-bottom {
+				grid-template-columns: 1fr;
+				&-right {
+					height: 200px;
 				}
 			}
 		}

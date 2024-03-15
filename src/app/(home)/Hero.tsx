@@ -25,8 +25,8 @@ const Hero = () => {
 			<div className={c['home-hero-right']}>
 				<Image
 					src='/images/hero-img.png'
-					width={650}
-					height={650}
+					width={700}
+					height={700}
 					alt='image of a pair of headphones'
 				/>
 			</div>
