@@ -1,0 +1,54 @@
+@import '@/scss/import.scss';
+
+.products {
+	display: grid;
+	gap: max(8rem, 64px);
+	padding: max(6rem, 45px) var(--gutter);
+
+	&-item {
+		@extend %jcsb;
+
+		&-img {
+			@extend %center;
+			height: max(35rem, 352px);
+			width: max(33.75rem, 327px);
+			background: var(--grey);
+
+			img {
+				height: max(24rem, 243px);
+				width: max(220px, 21.875rem);
+			}
+		}
+
+		&-info {
+			h4 {
+				@extend %font-14;
+				color: var(--dark-orange);
+				letter-spacing: 10px;
+				padding-bottom: max(1.5rem, 14px);
+			}
+
+			h2 {
+				@extend %font-40;
+				letter-spacing: 1.43px;
+				text-transform: uppercase;
+				max-width: max(327px, 27.813rem);
+			}
+
+			p {
+				@extend %font-15;
+				line-height: 1.5;
+				opacity: 0.5;
+				max-width: max(327px, 27.813rem);
+				padding-top: max(2rem, 20px);
+			}
+
+			button {
+				margin-top: max(2rem, 20px);
+			}
+		}
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+	}
+}
