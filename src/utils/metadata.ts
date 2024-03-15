@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 const title = 'Audiophile | Immerse Yourself: High-Fidelity Audio for Every Listener'
 const description =
 	'Unleash the power of sound. At Audiophile, we curate premium audio equipment for music lovers, audiophiles, and anyone seeking an immersive listening experience. Explore headphones, speakers, turntables, and more – all designed to deliver exceptional sound quality. Elevate your audio journey, shop Audiophile today!'
+const url = 'https://audiophile-ecommerce-iykekelvins.vercel.app/'
 
 export const metaDataOptions: Metadata = {
 	generator: 'Next.js',
@@ -25,7 +26,7 @@ export const metaDataOptions: Metadata = {
 		'home audio systems',
 		'car audio systems',
 	],
-	authors: [{ name: 'Kelvin Ochubili', url: 'https://nextjs.org' }],
+	authors: [{ name: 'Kelvin Ochubili', url }],
 	creator: 'Kelvin Ochubili',
 	publisher: 'Kelvin Ochubili',
 	formatDetection: {
@@ -36,7 +37,7 @@ export const metaDataOptions: Metadata = {
 	openGraph: {
 		title,
 		description,
-		url: 'https://nextjs.org',
+		url,
 		siteName: 'Audiophile',
 		images: [
 			{
