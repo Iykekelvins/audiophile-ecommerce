@@ -1,13 +1,19 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
 import { navLinks } from '@/utils/mock'
 
 import Link from 'next/link'
 import Image from 'next/image'
+import cn from '@/utils/cn'
 
 import c from './Navbar.module.scss'
 
 const Navbar = () => {
+	const pathname = usePathname()
+
 	return (
-		<nav className={c.navbar}>
+		<nav className={cn(c.navbar, pathname !== '/' ? c.black : '')}>
 			<div className={c['navbar-inner']}>
 				<div className={c['navbar-inner-left']}>
 					<button>

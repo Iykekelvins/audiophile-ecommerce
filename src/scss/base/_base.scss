@@ -113,3 +113,15 @@ input[type='number'] {
 		}
 	}
 }
+
+.header {
+	@extend %center;
+	background: var(--black);
+	padding: max(5rem, 32px);
+	h1 {
+		@extend %font-40;
+		color: var(--white);
+		letter-spacing: 1.43px;
+		text-transform: uppercase;
+	}
+}

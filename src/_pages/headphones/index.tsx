@@ -1,7 +1,13 @@
-import React from 'react'
+import Header from '@/components/Header'
+
+import c from './headphones.module.scss'
 
 const Headphones = () => {
-	return <div></div>
+	return (
+		<div className={c.headphones}>
+			<Header title='headphones' />
+		</div>
+	)
 }
 
 export default Headphones
