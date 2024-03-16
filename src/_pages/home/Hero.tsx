@@ -17,7 +17,7 @@ const Hero = () => {
 					passionate music enthusiast.
 				</p>
 
-				<Link href='/headphones/xx99-mark-ii'>
+				<Link href='/headphones/xx99-mark-ii-headphones'>
 					<Buttons type='primary'>See product</Buttons>
 				</Link>
 			</div>

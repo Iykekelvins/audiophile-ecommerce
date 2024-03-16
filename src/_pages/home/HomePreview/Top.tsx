@@ -26,7 +26,7 @@ const Top = () => {
 					remarkable sound.
 				</p>
 
-				<Link href='/speakers/zx9'>
+				<Link href='/speakers/zx9-speaker'>
 					<Buttons type='tertiary'>see product</Buttons>
 				</Link>
 			</div>

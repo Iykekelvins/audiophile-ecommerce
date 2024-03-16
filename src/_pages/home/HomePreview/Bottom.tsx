@@ -18,7 +18,7 @@ const Bottom = () => {
 
 			<div className={c['home-preview-bottom-right']}>
 				<h3>YX1 EARPHONES</h3>
-				<Link href='/earphones/yx1'>
+				<Link href='/earphones/yx1-earphones'>
 					<Buttons type='secondary'>see product</Buttons>
 				</Link>
 			</div>

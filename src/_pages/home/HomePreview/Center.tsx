@@ -9,7 +9,7 @@ const Center = () => {
 		<div className={c['home-preview-center']}>
 			<div className={c['home-preview-center-left']}>
 				<h3>ZX7 SPEAKER</h3>
-				<Link href='/speakers/zx7'>
+				<Link href='/speakers/zx7-speaker'>
 					<Buttons type='secondary'>see product</Buttons>
 				</Link>
 			</div>
