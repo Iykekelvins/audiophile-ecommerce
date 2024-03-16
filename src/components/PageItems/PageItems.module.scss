@@ -16,8 +16,14 @@
 			border-radius: max(0.5rem, 8px);
 
 			img {
-				height: max(24rem, 243px);
-				width: max(220px, 21.875rem);
+				&.headphones {
+					height: max(24rem, 243px);
+					width: max(220px, 21.875rem);
+				}
+				&.speakers {
+					height: max(22.5rem, 215px);
+					width: max(167px, 16.875rem);
+				}
 			}
 		}
 

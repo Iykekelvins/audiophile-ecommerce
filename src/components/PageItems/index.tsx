@@ -16,6 +16,7 @@ const PageItem = ({ product }: { product: IProduct }) => {
 					width={350}
 					height={385}
 					alt={`photo of our ${product.name}`}
+					className={c[`${product.category}`]}
 				/>
 			</div>
 

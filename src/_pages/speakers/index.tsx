@@ -5,7 +5,7 @@ const Speakers = () => {
 	return (
 		<div>
 			<Header title='Speakers' />
-			{/* <PageItems category='Speakers' /> */}
+			<PageItems category='speakers' />
 		</div>
 	)
 }
