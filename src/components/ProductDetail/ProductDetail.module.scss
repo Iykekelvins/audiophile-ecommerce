@@ -17,7 +17,7 @@
 	}
 
 	&-features {
-		margin-top: max(5rem, 70px);
+		margin-top: max(8rem, 75px);
 		&-grid {
 			display: grid;
 			grid-template-columns: 2fr 1fr;
@@ -78,7 +78,7 @@
 	}
 
 	&-gallery {
-		margin-top: max(5rem, 70px);
+		margin-top: max(8rem, 75px);
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: max(1.5rem, 20px);
@@ -97,6 +97,63 @@
 
 		@include respondMax('mobile3x') {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	&-others {
+		margin-top: max(8rem, 75px);
+		h2 {
+			@extend %font-32;
+			text-align: center;
+			letter-spacing: 1.14px;
+			text-transform: uppercase;
+		}
+
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: max(1.5rem, 24px);
+			margin-top: max(4rem, 64px);
+		}
+
+		&-item {
+			display: grid;
+			place-items: center;
+			gap: max(1.5rem, 24px);
+			&-img {
+				@extend %center;
+				height: max(19.875rem, 120px);
+				border-radius: max(8px, 0.5rem);
+				background: var(--grey);
+				width: 100%;
+
+				img {
+					width: max(85px, 10.938rem);
+					height: max(95px, 11.875rem);
+				}
+			}
+
+			h3 {
+				@extend %font-24;
+				letter-spacing: 1.71px;
+			}
+		}
+
+		@include respondMax('tablet3x') {
+			&-item-img {
+				height: 318px;
+			}
+		}
+
+		@include respondMax('mobile3x') {
+			ul {
+				grid-template-columns: 1fr;
+				gap: 40px;
+			}
+
+			&-item-img {
+				height: 120px;
+			}
 		}
 	}
 }

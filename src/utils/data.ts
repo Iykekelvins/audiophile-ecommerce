@@ -48,17 +48,17 @@ export const products: IProduct[] = [
 			{
 				name: 'XX99 MARK I',
 				img: '/images/headphones/xx99-mark-i.png',
-				href: '/headphones/xx99-mark-i',
+				href: '/headphones/xx99-mark-i-headphones',
 			},
 			{
 				name: 'XX59',
 				img: '/images/headphones/xx59.png',
-				href: '/headphones/xx59',
+				href: '/headphones/xx59-headphones',
 			},
 			{
 				name: 'ZX9 SPEAKER',
 				img: '/images/speakers/zx9.png',
-				href: '/speakers/zx9',
+				href: '/speakers/zx9-speaker',
 			},
 		],
 	},
@@ -105,17 +105,17 @@ export const products: IProduct[] = [
 			{
 				name: 'XX99 MARK II',
 				img: '/images/headphones/xx99-mark-ii.png',
-				href: '/headphones/xx99-mark-ii',
+				href: '/headphones/xx99-mark-ii-headphones',
 			},
 			{
 				name: 'XX59',
 				img: '/images/headphones/xx59.png',
-				href: '/headphones/xx59',
+				href: '/headphones/xx59-headphones',
 			},
 			{
 				name: 'ZX9 SPEAKER',
 				img: '/images/speakers/zx9.png',
-				href: '/speakers/zx9',
+				href: '/speakers/zx9-speaker',
 			},
 		],
 	},
@@ -162,17 +162,17 @@ export const products: IProduct[] = [
 			{
 				name: 'XX99 MARK II',
 				img: '/images/headphones/xx99-mark-ii.png',
-				href: '/headphones/xx99-mark-ii',
+				href: '/headphones/xx99-mark-ii-headphones',
 			},
 			{
 				name: 'XX99 MARK I',
 				img: '/images/headphones/xx99-mark-i.png',
-				href: '/headphones/xx99-mark-i',
+				href: '/headphones/xx99-mark-i-headphones',
 			},
 			{
 				name: 'ZX9 SPEAKER',
 				img: '/images/speakers/zx9.png',
-				href: '/speakers/zx9',
+				href: '/speakers/zx9-speaker',
 			},
 		],
 	},
@@ -222,18 +222,18 @@ export const products: IProduct[] = [
 		others: [
 			{
 				name: 'ZX7 SPEAKER',
-				img: '/images/speakers/zx7-speaker.png',
+				img: '/images/speakers/zx7.png',
 				href: '/speakers/zx7-speaker',
 			},
 			{
 				name: 'XX99 MARK I',
-				img: '/images/speakers/xx99-mark-i.png',
-				href: '/speakers/xx99-mark-i',
+				img: '/images/headphones/xx99-mark-i.png',
+				href: '/headphones/xx99-mark-i-headphones',
 			},
 			{
 				name: 'XX59',
 				img: '/images/headphones/xx59.png',
-				href: '/headphones/xx9',
+				href: '/headphones/xx59-headphones',
 			},
 		],
 	},
@@ -282,19 +282,19 @@ export const products: IProduct[] = [
 		},
 		others: [
 			{
-				name: 'ZX7 SPEAKER',
-				img: '/images/speakers/zx7-speaker.png',
-				href: '/speakers/zx7-speaker',
+				name: 'ZX9 SPEAKER',
+				img: '/images/speakers/zx9.png',
+				href: '/speakers/zx9-speaker',
 			},
 			{
 				name: 'XX99 MARK I',
-				img: '/images/speakers/xx99-mark-i.png',
-				href: '/speakers/xx99-mark-i',
+				img: '/images/headphones/xx99-mark-i.png',
+				href: '/headphones/xx99-mark-i-headphones',
 			},
 			{
 				name: 'XX59',
 				img: '/images/headphones/xx59.png',
-				href: '/headphones/xx9',
+				href: '/headphones/xx59-headphones',
 			},
 		],
 	},
@@ -343,18 +343,18 @@ export const products: IProduct[] = [
 		},
 		others: [
 			{
-				name: 'XX99 MARK I',
-				img: '/images/speakers/xx99-mark-i.png',
-				href: '/speakers/xx99-mark-i',
+				name: 'XX99 MARK I ',
+				img: '/images/headphones/xx99-mark-i.png',
+				href: '/headphones/xx99-mark-i-headphones',
 			},
 			{
 				name: 'XX59',
 				img: '/images/headphones/xx59.png',
-				href: '/headphones/xx9',
+				href: '/headphones/xx59-headphones',
 			},
 			{
 				name: 'ZX9 SPEAKER',
-				img: '/images/speakers/zx9-speaker.png',
+				img: '/images/speakers/zx9.png',
 				href: '/speakers/zx9-speaker',
 			},
 		],
