@@ -14,7 +14,7 @@
 		@extend %jcsb;
 		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 		margin: 0 var(--gutter);
-		padding: max(1.5rem, 24px) 0;
+		padding: max(1.5rem, 28px) 0;
 
 		&-left {
 			@extend %aic;
@@ -22,19 +22,11 @@
 			button {
 				display: none;
 			}
-
-			@include respondMax('mobile3x') {
-				a {
-					position: absolute;
-					left: 50%;
-					transform: translate(-50%, 0);
-				}
-			}
 		}
 
 		ul {
 			@extend %aic;
-			gap: max(1.5rem, 24px);
+			gap: max(1.5rem, 28px);
 			li {
 				@extend %font-13;
 				font-weight: 700;
@@ -48,6 +40,17 @@
 					a {
 						color: var(--dark-orange);
 					}
+				}
+			}
+		}
+		@include respondMax('mobile3x') {
+			padding: max(1.5rem, 28px) var(--gutter);
+			margin: 0;
+			&-left {
+				a {
+					position: absolute;
+					left: 50%;
+					transform: translate(-50%, 0);
 				}
 			}
 		}
