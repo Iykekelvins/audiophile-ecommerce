@@ -298,4 +298,65 @@ export const products: IProduct[] = [
 			},
 		],
 	},
+	{
+		id: 6,
+		slug: 'yx1-earphones',
+		category: 'earphones',
+		name: 'YX1 WIRELESS EARPHONES',
+		info: 'Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.',
+		new: true,
+		price: 599,
+		quantity: 1,
+		img: '/images/earphones/yx1.png',
+		features: {
+			first:
+				'Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and truly immersive sound.',
+			second:
+				'The YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in an all new white and grey color scheme as well as the popular classic black.',
+		},
+		items: [
+			{
+				quantity: 2,
+				extraItem: 'Earphone Unit',
+			},
+			{
+				quantity: 6,
+				extraItem: 'Multi-size Earplugs',
+			},
+			{
+				quantity: 1,
+				extraItem: 'User Manual',
+			},
+			{
+				quantity: 1,
+				extraItem: 'USB-C Charging Cable',
+			},
+			{
+				quantity: 1,
+				extraItem: 'Travel Pouch',
+			},
+		],
+		gallery: {
+			first: '/images/yx1-gallery-1.png',
+			second: '/images/yx1-gallery-2.png',
+			third: '/images/yx1-gallery-3.png',
+		},
+		others: [
+			{
+				name: 'XX99 MARK I',
+				img: '/images/speakers/xx99-mark-i.png',
+				href: '/speakers/xx99-mark-i',
+			},
+			{
+				name: 'XX59',
+				img: '/images/headphones/xx59.png',
+				href: '/headphones/xx9',
+			},
+			{
+				name: 'ZX9 SPEAKER',
+				img: '/images/speakers/zx9-speaker.png',
+				href: '/speakers/zx9-speaker',
+			},
+		],
+	},
 ]

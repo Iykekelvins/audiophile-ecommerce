@@ -14,6 +14,7 @@
 			width: max(33.75rem, 327px);
 			background: var(--grey);
 			border-radius: max(0.5rem, 8px);
+			position: relative;
 
 			img {
 				&.headphones {
@@ -24,6 +25,15 @@
 					height: max(22.5rem, 215px);
 					width: max(167px, 16.875rem);
 				}
+				&.earphones {
+					height: max(23rem, 270px);
+					width: max(270px, 23rem);
+				}
+			}
+
+			svg {
+				position: absolute;
+				bottom: 0;
 			}
 		}
 

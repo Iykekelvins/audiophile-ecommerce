@@ -5,7 +5,7 @@ const Earphones = () => {
 	return (
 		<div>
 			<Header title='Earphones' />
-			{/* <PageItems category='Earphones' /> */}
+			<PageItems category='earphones' />
 		</div>
 	)
 }
