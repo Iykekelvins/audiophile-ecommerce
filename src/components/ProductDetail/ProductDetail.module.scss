@@ -1,0 +1,17 @@
+@import '@/scss/import.scss';
+
+.details {
+	padding: max(3rem, 24px) var(--gutter);
+	&-header {
+		margin-bottom: max(3rem, 24px);
+
+		button {
+			@extend %font-15;
+			opacity: 0.5;
+			transition: var(--transition);
+			&:hover {
+				color: var(--dark-orange);
+			}
+		}
+	}
+}

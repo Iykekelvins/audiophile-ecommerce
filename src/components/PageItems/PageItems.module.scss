@@ -7,7 +7,6 @@
 
 	&-item {
 		@extend %jcsb;
-
 		&-img {
 			@extend %center;
 			height: max(35rem, 352px);
@@ -18,8 +17,8 @@
 
 			img {
 				&.headphones {
-					height: max(24rem, 243px);
-					width: max(220px, 21.875rem);
+					height: max(24rem, 201px);
+					width: max(180px, 21.875rem);
 				}
 				&.speakers {
 					height: max(22.5rem, 215px);
@@ -38,11 +37,11 @@
 		}
 
 		&-info {
-			h4 {
+			& > h4 {
 				@extend %font-14;
 				color: var(--dark-orange);
 				letter-spacing: 10px;
-				padding-bottom: max(1.5rem, 14px);
+				padding-bottom: max(1.5rem, 24px);
 			}
 
 			h2 {
@@ -60,15 +59,73 @@
 				padding-top: max(2rem, 20px);
 			}
 
-			button {
-				margin-top: max(2rem, 20px);
+			a {
+				button {
+					margin-top: max(2rem, 28px);
+				}
 			}
-		}
-		&:nth-child(even) {
-			flex-direction: row-reverse;
+
+			&-price {
+				margin-top: max(2rem, 28px);
+				h4 {
+					@extend %font-18;
+					font-weight: 700;
+				}
+
+				footer {
+					display: flex;
+					gap: max(0.5rem, 8px);
+					margin-top: max(2rem, 28px);
+
+					div {
+						display: flex;
+						align-items: center;
+						justify-content: space-evenly;
+						width: max(7.5rem, 120px);
+						height: max(48px, 3rem);
+						background: var(--grey);
+						span {
+							@extend %font-13;
+							font-weight: 700;
+							display: block;
+							padding-top: 3px;
+						}
+
+						button {
+							svg {
+								path {
+									transition: var(--transition);
+								}
+							}
+
+							&:hover {
+								svg {
+									path {
+										fill: var(--dark-orange);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 
 		@include respondMax('tablet2x') {
+			&.qty {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				.products-item {
+					&-img {
+						height: 480px;
+					}
+
+					&-info {
+						align-items: flex-start;
+						text-align: left;
+					}
+				}
+			}
 			flex-direction: column;
 			gap: 40px;
 
@@ -86,7 +143,27 @@
 					max-width: 100%;
 				}
 			}
+		}
 
+		@include respondMax('mobile3x') {
+			&.qty {
+				display: grid;
+				grid-template-columns: 1fr;
+				.products-item {
+					&-img {
+						height: 327px;
+					}
+				}
+			}
+		}
+	}
+
+	li {
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+
+		@include respondMax('tablet2x') {
 			&:nth-child(even) {
 				flex-direction: column;
 			}

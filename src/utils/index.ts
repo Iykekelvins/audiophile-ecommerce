@@ -10,3 +10,15 @@ export const scrollOptions: LenisOptions = {
 	touchMultiplier: 1,
 	infinite: false,
 }
+
+export const formatNum = (number: number | string) => {
+	if (number === null || number === undefined) return
+	return Intl.NumberFormat().format(
+		Number(
+			number.toLocaleString('en-US', {
+				minimumIntegerDigits: 2,
+				useGrouping: false,
+			}) || '00'
+		)
+	)
+}

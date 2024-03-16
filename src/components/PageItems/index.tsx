@@ -1,15 +1,23 @@
 import { products } from '@/utils/data'
 import { IProduct } from '@/utils/types'
+import { formatNum } from '@/utils'
 
 import Image from 'next/image'
 import Buttons from '../Buttons'
 import Link from 'next/link'
+import cn from '@/utils/cn'
 
 import c from './PageItems.module.scss'
 
-const PageItem = ({ product }: { product: IProduct }) => {
+export const PageItem = ({
+	product,
+	qty,
+}: {
+	product: IProduct | any
+	qty?: boolean
+}) => {
 	return (
-		<li className={c['products-item']}>
+		<li className={cn(c['products-item'], qty ? c.qty : '')}>
 			<div className={c['products-item-img']}>
 				<Image
 					src={product.img}
@@ -60,9 +68,51 @@ const PageItem = ({ product }: { product: IProduct }) => {
 
 				<p>{product.info}</p>
 
-				<Link href={`/${product.category}/${product.slug}`}>
-					<Buttons type='primary'>see product</Buttons>
-				</Link>
+				{!qty ? (
+					<Link href={`/${product.category}/${product.slug}`}>
+						<Buttons type='primary'>see product</Buttons>
+					</Link>
+				) : (
+					<div className={c['products-item-info-price']}>
+						<h4>$ {formatNum(product.price)}</h4>
+
+						<footer>
+							<div>
+								<button className={c.minus}>
+									<svg
+										width='5'
+										height='2'
+										viewBox='0 0 5 2'
+										fill='none'
+										xmlns='http://www.w3.org/2000/svg'>
+										<path
+											opacity='0.25'
+											d='M0.550508 1.516V0.2875H4.45051V1.516H0.550508Z'
+											fill='black'
+										/>
+									</svg>
+								</button>
+								<span>1</span>
+								<button className={c.plus}>
+									<svg
+										width='7'
+										height='7'
+										viewBox='0 0 7 7'
+										fill='none'
+										xmlns='http://www.w3.org/2000/svg'>
+										<path
+											opacity='0.25'
+											d='M2.89362 6.258V3.931H0.566621V2.7025H2.89362V0.382H4.12212V2.7025H6.43612V3.931H4.12212V6.258H2.89362Z'
+											fill='black'
+										/>
+									</svg>
+								</button>
+							</div>
+
+							<Buttons type='primary'>ADD TO CART</Buttons>
+						</footer>
+					</div>
+				)}
 			</div>
 		</li>
 	)
