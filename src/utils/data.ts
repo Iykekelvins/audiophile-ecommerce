@@ -337,9 +337,9 @@ export const products: IProduct[] = [
 			},
 		],
 		gallery: {
-			first: '/images/yx1-gallery-1.png',
-			second: '/images/yx1-gallery-2.png',
-			third: '/images/yx1-gallery-3.png',
+			first: '/images/earphones/yx1-gallery-1.png',
+			second: '/images/earphones/yx1-gallery-2.png',
+			third: '/images/earphones/yx1-gallery-3.png',
 		},
 		others: [
 			{

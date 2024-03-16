@@ -18,9 +18,17 @@
 
 		&-left {
 			@extend %aic;
-			gap: max(2rem, 32px);
+			gap: max(2rem, 18px);
 			button {
 				display: none;
+			}
+
+			@include respondMax('mobile3x') {
+				a {
+					position: absolute;
+					left: 50%;
+					transform: translate(-50%, 0);
+				}
 			}
 		}
 

@@ -6,6 +6,7 @@ import { PageItem } from '../PageItems'
 import { IProduct } from '@/utils/types'
 
 import Features from './Features'
+import Gallery from './Gallery'
 
 import c from './ProductDetail.module.scss'
 
@@ -22,6 +23,7 @@ const ProductDetail = ({ slug }: { slug: string }) => {
 
 			<PageItem product={product} qty />
 			<Features product={product} />
+			<Gallery product={product} />
 		</div>
 	)
 }

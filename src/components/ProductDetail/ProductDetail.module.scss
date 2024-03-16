@@ -9,6 +9,7 @@
 			@extend %font-15;
 			opacity: 0.5;
 			transition: var(--transition);
+			margin-left: -3.5px;
 			&:hover {
 				color: var(--dark-orange);
 			}
@@ -73,6 +74,29 @@
 					grid-template-columns: 1fr;
 				}
 			}
+		}
+	}
+
+	&-gallery {
+		margin-top: max(5rem, 70px);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: max(1.5rem, 20px);
+		&-left {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: max(1.5rem, 20px);
+		}
+		img {
+			border-radius: max(0.5rem, 8px);
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include respondMax('mobile3x') {
+			grid-template-columns: 1fr;
 		}
 	}
 }
