@@ -5,6 +5,8 @@ import { products } from '@/utils/data'
 import { PageItem } from '../PageItems'
 import { IProduct } from '@/utils/types'
 
+import Features from './Features'
+
 import c from './ProductDetail.module.scss'
 
 const ProductDetail = ({ slug }: { slug: string }) => {
@@ -19,6 +21,7 @@ const ProductDetail = ({ slug }: { slug: string }) => {
 			</header>
 
 			<PageItem product={product} qty />
+			<Features product={product} />
 		</div>
 	)
 }

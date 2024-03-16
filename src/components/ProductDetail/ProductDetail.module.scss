@@ -14,4 +14,65 @@
 			}
 		}
 	}
+
+	&-features {
+		margin-top: max(5rem, 70px);
+		&-grid {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			gap: max(6rem, 48px);
+			h2 {
+				@extend %font-32;
+				letter-spacing: 1.14px;
+				text-transform: uppercase;
+				margin-bottom: max(1.5rem, 24px);
+			}
+
+			&-left {
+				p {
+					@extend %font-15;
+					opacity: 0.5;
+					line-height: 1.5;
+					&:last-child {
+						padding-top: max(1.5rem, 24px);
+					}
+				}
+			}
+
+			&-right {
+				ul {
+					display: grid;
+					gap: max(1rem, 16px);
+
+					li {
+						@extend %aic;
+						@extend %font-15;
+						gap: max(1rem, 16px);
+						color: var(--dark-orange);
+						font-weight: 700;
+						span {
+							color: var(--black);
+							opacity: 0.5;
+							font-weight: 400;
+						}
+					}
+				}
+			}
+
+			@include respondMax('tablet3x') {
+				grid-template-columns: 1fr;
+
+				&-right {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			@include respondMax('mobile3x') {
+				&-right {
+					grid-template-columns: 1fr;
+				}
+			}
+		}
+	}
 }

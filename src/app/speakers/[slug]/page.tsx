@@ -1,7 +1,15 @@
-import React from 'react'
+import ProductDetail from '@/components/ProductDetail'
 
-const SingleSpeakersPage = () => {
-	return <div>SingleSpeakersPage</div>
+const SingleSpeakersPage = ({
+	params,
+}: {
+	params: {
+		slug: string
+	}
+}) => {
+	const slug = params.slug
+
+	return <ProductDetail slug={slug} />
 }
 
 export default SingleSpeakersPage
