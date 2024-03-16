@@ -20,9 +20,15 @@
 			flex-direction: column;
 			position: relative;
 			top: min(-5rem, -40px);
+
+			img {
+				width: max(9.625rem, 104px);
+				height: max(110px, 10rem);
+			}
+
 			svg {
 				position: absolute;
-				bottom: min(-4rem, -50px);
+				bottom: min(-2rem, -50px);
 			}
 		}
 
