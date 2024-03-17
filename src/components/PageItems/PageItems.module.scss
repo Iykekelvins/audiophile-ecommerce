@@ -88,14 +88,19 @@
 							@extend %font-13;
 							font-weight: 700;
 							display: block;
-							padding-top: 3px;
+							padding-top: 4px;
 						}
 
 						button {
+							height: max-content;
 							svg {
 								path {
 									transition: var(--transition);
 								}
+							}
+
+							&:first-child {
+								margin-top: -3px;
 							}
 
 							&:hover {
