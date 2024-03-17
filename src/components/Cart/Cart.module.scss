@@ -1,0 +1,132 @@
+@import '@/scss/import.scss';
+
+.cart {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: max(8rem, 60px) var(--gutter);
+
+	&-container {
+		background: var(--white);
+		max-width: max(23.563rem, 377px);
+		width: 100%;
+		border-radius: max(8px, 0.5rem);
+		padding: max(2rem, 24px);
+
+		header {
+			@extend %jcsb;
+			h3 {
+				@extend %font-18;
+				letter-spacing: 1.29px;
+				text-transform: uppercase;
+			}
+
+			button {
+				@extend %font-15;
+				opacity: 0.5;
+				text-decoration: underline;
+			}
+		}
+
+		ul {
+			margin-top: max(2rem, 24px);
+			display: grid;
+			gap: max(1.5rem, 18px);
+		}
+
+		footer {
+			margin-top: max(2rem, 24px);
+
+			div {
+				@extend %jcsb;
+				h4 {
+					@extend %font-15;
+					opacity: 0.5;
+					&:last-child {
+						@extend %font-18;
+						opacity: 1;
+						font-weight: 700;
+					}
+				}
+			}
+
+			button {
+				margin-top: max(1.5rem, 18px);
+				width: 100%;
+			}
+		}
+	}
+
+	&-item {
+		@extend %jcsb;
+
+		&-left {
+			@extend %aic;
+			gap: max(1rem, 14px);
+
+			&-img {
+				@extend %center;
+				height: max(64px, 4rem);
+				width: max(64px, 4rem);
+				background: var(--grey);
+				border-radius: max(8px, 0.5rem);
+			}
+
+			h4 {
+				@extend %font-15;
+				font-weight: 700;
+				text-transform: uppercase;
+			}
+
+			h5 {
+				@extend %font-14;
+				font-weight: 700;
+				opacity: 0.5;
+				padding-top: max(0.5rem, 8px);
+			}
+		}
+
+		&-right {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			width: max(6rem, 48px);
+			height: max(24px, 2rem);
+			background: var(--grey);
+			span {
+				@extend %font-13;
+				font-weight: 700;
+				display: block;
+				padding-top: 4px;
+			}
+
+			button {
+				height: max-content;
+				svg {
+					path {
+						transition: var(--transition);
+					}
+				}
+
+				&:first-child {
+					margin-top: -3px;
+				}
+
+				&:hover {
+					svg {
+						path {
+							fill: var(--dark-orange);
+						}
+					}
+				}
+			}
+		}
+	}
+}

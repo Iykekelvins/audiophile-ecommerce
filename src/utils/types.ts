@@ -27,3 +27,10 @@ export interface IProduct {
 		href: string
 	}[]
 }
+
+export interface ICartItem {
+	name: string
+	img: string
+	price: number
+	quantity: number
+}
