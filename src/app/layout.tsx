@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PreviewProducts from '@/components/PreviewProducts'
 import AudioGear from '@/components/AudioGear'
+import Cart from '@/components/Cart'
 
 export const metadata: Metadata = {
 	title: {
@@ -29,10 +30,13 @@ export default function RootLayout({
 			<Lenis>
 				<body>
 					<main>
-						<Navbar />
-						{children}
-						<PreviewProducts isHome />
-						<AudioGear />
+						<>
+							<Navbar />
+							<Cart />
+							{children}
+							<PreviewProducts hide />
+							<AudioGear />
+						</>
 						<Footer />
 					</main>
 				</body>

@@ -80,21 +80,31 @@ const PreviewProduct = ({ img, title, href, width, height }: IProduct) => {
 	)
 }
 
-const PreviewProducts = ({ isHome }: { isHome?: boolean }) => {
+const PreviewProductsItems = () => {
+	return (
+		<section className={c.products}>
+			<ul>
+				{previewProducts.map((product) => (
+					<PreviewProduct key={product.title} {...product} />
+				))}
+			</ul>
+		</section>
+	)
+}
+
+const PreviewProducts = ({ hide }: { hide?: boolean }) => {
 	const pathname = usePathname()
 
 	return (
 		<>
-			{(isHome && pathname !== '/') || !isHome ? (
-				<section className={c.products}>
-					<ul>
-						{previewProducts.map((product) => (
-							<PreviewProduct key={product.title} {...product} />
-						))}
-					</ul>
-				</section>
+			{!hide ? (
+				<PreviewProductsItems />
+			) : hide && pathname === '/' ? (
+				<></>
+			) : hide && pathname === '/checkout' ? (
+				<></>
 			) : (
-				isHome && pathname === '/' && <></>
+				<PreviewProductsItems />
 			)}
 		</>
 	)
