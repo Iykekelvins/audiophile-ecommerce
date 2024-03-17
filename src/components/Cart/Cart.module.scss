@@ -11,7 +11,9 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: flex-end;
-	padding: max(8rem, 60px) var(--gutter);
+	padding: max(8rem, 105px) var(--gutter);
+	opacity: 0;
+	pointer-events: none;
 
 	&-container {
 		background: var(--white);

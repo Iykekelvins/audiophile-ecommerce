@@ -1,11 +1,16 @@
+'use client'
+
 import { ICartItem } from '@/utils/types'
 import { formatNum } from '@/utils'
+import { animateCart } from '@/utils/animations'
 
 import Image from 'next/image'
-
-import c from './Cart.module.scss'
 import Buttons from '../Buttons'
 import Link from 'next/link'
+
+import c from './Cart.module.scss'
+import cn from '@/utils/cn'
+import { useRouter } from 'next/navigation'
 
 export const CartItem = ({ img, name, price, quantity }: ICartItem) => {
 	return (
@@ -59,9 +64,21 @@ export const CartItem = ({ img, name, price, quantity }: ICartItem) => {
 }
 
 const Cart = () => {
+	const router = useRouter()
+
+	const handleCloseCart = () => {
+		animateCart()
+
+		setTimeout(() => {
+			router.push('/checkout')
+		}, 500)
+	}
+
 	return (
-		<div className={c.cart}>
-			<div className={c['cart-container']}>
+		<div className={cn(c.cart, 'cart')} onClick={() => animateCart()}>
+			<div
+				className={cn(c['cart-container'], 'cart-container')}
+				onClick={(e) => e.stopPropagation()}>
 				<header>
 					<h3>
 						cart (<span>3</span>)
@@ -85,9 +102,9 @@ const Cart = () => {
 						<h4>$ 5,396</h4>
 					</div>
 
-					<Link href='/checkout'>
-						<Buttons type='primary'>checkout</Buttons>
-					</Link>
+					<Buttons type='primary' onClick={() => handleCloseCart()}>
+						checkout
+					</Buttons>
 				</footer>
 			</div>
 		</div>

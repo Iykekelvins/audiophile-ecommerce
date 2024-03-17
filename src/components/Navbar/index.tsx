@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { navLinks } from '@/utils/mock'
+import { animateCart } from '@/utils/animations'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -42,7 +43,7 @@ const Navbar = () => {
 					))}
 				</ul>
 
-				<button>
+				<button onClick={() => animateCart()}>
 					<Image src='/icons/cart.svg' height={20} width={23} alt='cart icon' />
 				</button>
 			</div>
