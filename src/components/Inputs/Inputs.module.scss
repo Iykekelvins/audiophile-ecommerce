@@ -1,0 +1,60 @@
+@import '@/scss/import.scss';
+
+.input {
+	display: grid;
+	gap: max(0.5rem, 8px);
+
+	&-label {
+		@extend %jcsb;
+
+		label {
+			@extend %font-12;
+			font-weight: 700;
+			transition: var(--transition);
+		}
+
+		span {
+			@extend %font-12;
+			letter-spacing: -0.21px;
+			color: #cd2c2c;
+			transition: var(--transition);
+			opacity: 0;
+		}
+	}
+
+	input {
+		@extend %font-14;
+		border: 1px solid #cfcfcf;
+		outline: none;
+		border-radius: max(0.5rem, 8px);
+		font-family: inherit;
+		font-weight: 700;
+		padding: max(1rem, 14px);
+		transition: var(--transition);
+		caret-color: var(--dark-orange);
+
+		&::placeholder {
+			opacity: 40%;
+			font-weight: 700;
+		}
+
+		&:focus-within {
+			border-color: var(--dark-orange);
+		}
+	}
+
+	&.error {
+		label {
+			color: #cd2c2c;
+		}
+
+		span {
+			opacity: 1;
+		}
+
+		input {
+			border-color: #cd2c2c;
+			// border-width: 2px;
+		}
+	}
+}
