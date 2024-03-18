@@ -29,7 +29,8 @@
 		border-radius: max(0.5rem, 8px);
 		font-family: inherit;
 		font-weight: 700;
-		padding: max(1rem, 14px);
+		padding-left: max(1rem, 14px);
+		height: max(56px, 3.5rem);
 		transition: var(--transition);
 		caret-color: var(--dark-orange);
 

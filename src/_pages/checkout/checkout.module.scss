@@ -57,6 +57,91 @@
 					margin-top: max(1rem, 14px);
 				}
 			}
+
+			&-payment {
+				margin-top: max(3rem, 30px);
+
+				&-top {
+					display: grid;
+					grid-template-columns: 1.1fr 1fr;
+					margin-top: max(1rem, 14px);
+					margin-bottom: max(1.5rem, 18px);
+
+					h5 {
+						@extend %font-12;
+						font-weight: 700;
+						letter-spacing: -0.21px;
+					}
+
+					&-right {
+						display: grid;
+						gap: max(1.5rem, 18px);
+						// max-width: max(20.084rem, 100%);
+
+						&-method {
+							@extend %aic;
+							gap: max(1rem, 14px);
+							@extend %font-14;
+							border: 1px solid #cfcfcf;
+							border-radius: max(0.5rem, 8px);
+							font-weight: 700;
+							padding-left: max(1rem, 14px);
+							height: max(56px, 3.5rem);
+							transition: var(--transition);
+							cursor: pointer;
+
+							div {
+								@extend %center;
+								height: 20px;
+								width: 20px;
+								border: 1px solid #cfcfcf;
+								border-radius: 50%;
+								span {
+									height: 50%;
+									width: 50%;
+									border-radius: 50%;
+									background: var(--dark-orange);
+									transform: scale(0);
+									transition: var(--transition);
+								}
+							}
+
+							&.selected {
+								border-color: var(--dark-orange);
+
+								div {
+									span {
+										transform: scale(1);
+									}
+								}
+							}
+
+							&:hover {
+								border-color: var(--dark-orange);
+							}
+						}
+					}
+				}
+
+				.cash {
+					@extend %aic;
+					gap: max(2rem, 24px);
+					margin-top: max(1.5rem, 18px);
+
+					svg {
+						height: 100%;
+						width: 100%;
+						max-height: max(48px, 3rem);
+						max-width: max(48px, 3rem);
+					}
+
+					p {
+						@extend %font-15;
+						opacity: 0.5;
+						line-height: 1.5;
+					}
+				}
+			}
 		}
 	}
 }
