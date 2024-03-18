@@ -17,11 +17,17 @@ const Navbar = () => {
 	const router = useRouter()
 
 	const handleCloseCart = (href: string) => {
-		animateCart()
+		const cart: HTMLDivElement | null = document.querySelector('.cart')
 
-		setTimeout(() => {
+		if (!cart?.style.opacity || cart?.style.opacity === '0') {
 			router.push(href)
-		}, 500)
+		} else {
+			animateCart()
+
+			setTimeout(() => {
+				router.push(href)
+			}, 500)
+		}
 	}
 
 	return (
@@ -41,7 +47,7 @@ const Navbar = () => {
 						</svg>
 					</button>
 
-					<Link href='/'>
+					<Link href='/' onClick={() => handleCloseCart('/')}>
 						<Image src='/icons/logo.svg' alt='audiophile logo' width={143} height={25} />
 					</Link>
 				</div>
@@ -49,7 +55,7 @@ const Navbar = () => {
 				<ul>
 					{navLinks.map((link) => (
 						<li key={link.name} onClick={() => handleCloseCart(link.href)}>
-							<Link href={''}>{link.name}</Link>
+							<Link href={link.href}>{link.name}</Link>
 						</li>
 					))}
 				</ul>
