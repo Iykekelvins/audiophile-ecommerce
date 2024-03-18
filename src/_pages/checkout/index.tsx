@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 
 import BillingDetails from './BillingDetails'
+import ShippingInfo from './ShippingInfo'
 
 import c from './checkout.module.scss'
 
@@ -24,6 +25,7 @@ const Checkout = () => {
 					<h2>CHECKOUT</h2>
 
 					<BillingDetails />
+					<ShippingInfo />
 				</div>
 			</div>
 		</div>

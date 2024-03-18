@@ -40,7 +40,7 @@ const BillingDetails = () => {
 				<Inputs
 					name='email'
 					placeholder='alexei@mail.com'
-					type='text'
+					type='email'
 					label='Email'
 					onChange={handlePayload}
 					value={payload.email}

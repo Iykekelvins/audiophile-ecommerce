@@ -6,14 +6,15 @@ interface IInput {
 	value: string
 	placeholder: string
 	label: string
-	type: 'text' | 'number'
+	className?: string
 	error?: boolean
+	type: 'text' | 'number' | 'email'
 	onChange: (e: any) => void
 }
 
 const Inputs = ({ ...props }: IInput) => {
 	return (
-		<div className={cn(c.input, props.error ? c.error : '')}>
+		<div className={cn(c.input, props.error ? c.error : '', props.className)}>
 			<div className={c['input-label']}>
 				<label htmlFor={props.name}>{props.label}</label>
 				<span>Wrong format</span>
