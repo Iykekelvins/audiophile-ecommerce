@@ -1,7 +1,9 @@
 import { CartItem } from '@/components/Cart'
 
-import c from './checkout.module.scss'
 import Buttons from '@/components/Buttons'
+import cn from '@/utils/cn'
+
+import c from './checkout.module.scss'
 
 const Summary = () => {
 	return (
@@ -39,9 +41,9 @@ const Summary = () => {
 				<h4>$1,079</h4>
 			</div>
 
-			<div className={c['checkout-summary-info']}>
+			<div className={cn(c['checkout-summary-info'], c.total)}>
 				<p>GRAND TOTAL</p>
-				<h4 className={c.total}>$5,446</h4>
+				<h4>$5,446</h4>
 			</div>
 
 			<Buttons type='primary'>CONTINUE & PAY</Buttons>

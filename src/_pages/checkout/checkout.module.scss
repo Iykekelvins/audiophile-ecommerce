@@ -176,12 +176,12 @@
 
 			h4 {
 				@extend %font-18;
-				&.total {
+			}
+			&.total {
+				margin-top: max(2rem, 20px);
+				h4 {
 					color: var(--dark-orange);
 				}
-			}
-			&:last-child {
-				margin-top: max(2rem, 24px);
 			}
 		}
 
