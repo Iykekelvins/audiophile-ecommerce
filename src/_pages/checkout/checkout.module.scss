@@ -1,1 +1,54 @@
 @import '@/scss/import.scss';
+
+.checkout {
+	padding: max(4rem, 32px) var(--gutter) max(5rem, 40px);
+
+	&-header {
+		margin-bottom: max(3rem, 24px);
+
+		button {
+			@extend %font-15;
+			opacity: 0.5;
+			transition: var(--transition);
+			margin-left: -3.5px;
+			&:hover {
+				color: var(--dark-orange);
+			}
+		}
+	}
+
+	&-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: max(1.5rem, 18px);
+
+		&-left {
+			padding: max(2rem, 24px);
+			background: var(--white);
+			border-radius: max(8px, 0.5rem);
+			.title {
+				@extend %font-13;
+				color: var(--dark-orange);
+				font-weight: 700;
+				letter-spacing: 0.93px;
+				text-transform: uppercase;
+			}
+
+			h2 {
+				@extend %font-32;
+				letter-spacing: 1.12px;
+			}
+
+			&-billing {
+				margin-top: max(3rem, 30px);
+
+				&-grid {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: max(1.5rem, 18px);
+					margin-top: max(1rem, 14px);
+				}
+			}
+		}
+	}
+}
