@@ -38,7 +38,7 @@ const ShippingInfo = () => {
 				value={payload.address}
 			/>
 
-			<div className={c['checkout-grid-left-shipping-grid']}>
+			<div className={c['checkout-grid-left-grid']}>
 				<Inputs
 					name='email'
 					placeholder='10001'

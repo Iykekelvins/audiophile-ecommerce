@@ -39,28 +39,21 @@
 				letter-spacing: 1.12px;
 			}
 
+			&-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: max(1.5rem, 18px);
+				margin-top: max(1rem, 14px);
+			}
+
 			&-billing {
 				margin-top: max(3rem, 30px);
-
-				&-grid {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					gap: max(1.5rem, 18px);
-					margin-top: max(1rem, 14px);
-				}
 			}
 
 			&-shipping {
 				margin-top: max(3rem, 30px);
 
 				.address {
-					margin-top: max(1rem, 14px);
-				}
-
-				&-grid {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					gap: max(1.5rem, 18px);
 					margin-top: max(1rem, 14px);
 				}
 			}

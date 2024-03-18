@@ -27,7 +27,7 @@ const BillingDetails = () => {
 		<div className={c['checkout-grid-left-billing']}>
 			<h4 className={c.title}>Billing Details</h4>
 
-			<div className={c['checkout-grid-left-billing-grid']}>
+			<div className={c['checkout-grid-left-grid']}>
 				<Inputs
 					name='name'
 					placeholder='Alexei Ward'
