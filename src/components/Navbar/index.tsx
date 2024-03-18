@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { navLinks } from '@/utils/mock'
 import { animateCart } from '@/utils/animations'
+import { useRouter } from 'next/navigation'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -12,6 +13,16 @@ import c from './Navbar.module.scss'
 
 const Navbar = () => {
 	const pathname = usePathname()
+
+	const router = useRouter()
+
+	const handleCloseCart = (href: string) => {
+		animateCart()
+
+		setTimeout(() => {
+			router.push(href)
+		}, 500)
+	}
 
 	return (
 		<nav className={cn(c.navbar, pathname !== '/' ? c.black : '')}>
@@ -37,8 +48,8 @@ const Navbar = () => {
 
 				<ul>
 					{navLinks.map((link) => (
-						<li key={link.name}>
-							<Link href={link.href}>{link.name}</Link>
+						<li key={link.name} onClick={() => handleCloseCart(link.href)}>
+							<Link href={''}>{link.name}</Link>
 						</li>
 					))}
 				</ul>

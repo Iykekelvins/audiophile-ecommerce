@@ -1,16 +1,15 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { ICartItem } from '@/utils/types'
 import { formatNum } from '@/utils'
 import { animateCart } from '@/utils/animations'
 
 import Image from 'next/image'
 import Buttons from '../Buttons'
-import Link from 'next/link'
 
 import c from './Cart.module.scss'
 import cn from '@/utils/cn'
-import { useRouter } from 'next/navigation'
 
 export const CartItem = ({ img, name, price, quantity }: ICartItem) => {
 	return (
