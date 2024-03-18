@@ -130,5 +130,11 @@
 				}
 			}
 		}
+
+		.qty {
+			@extend %font-15;
+			font-weight: 700;
+			opacity: 0.5;
+		}
 	}
 }

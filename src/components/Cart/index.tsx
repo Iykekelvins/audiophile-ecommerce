@@ -7,16 +7,16 @@ import { animateCart } from '@/utils/animations'
 
 import Image from 'next/image'
 import Buttons from '../Buttons'
-
-import c from './Cart.module.scss'
 import cn from '@/utils/cn'
 
-export const CartItem = ({ img, name, price, quantity }: ICartItem) => {
+import c from './Cart.module.scss'
+
+export const CartItem = ({ img, name, price, quantity, isSummaryPdt }: ICartItem) => {
 	return (
 		<li className={c['cart-item']}>
 			<div className={c['cart-item-left']}>
 				<div className={c['cart-item-left-img']}>
-					<Image src={img} width={40} height={40} alt={`image of our ${name}`} />
+					<Image src={img} width={40} height={45} alt={`image of our ${name}`} />
 				</div>
 
 				<div>
@@ -25,39 +25,43 @@ export const CartItem = ({ img, name, price, quantity }: ICartItem) => {
 				</div>
 			</div>
 
-			<div className={c['cart-item-right']}>
-				<button className={c.minus}>
-					<svg
-						width='5'
-						height='2'
-						viewBox='0 0 5 2'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
-						<path
-							opacity='0.25'
-							d='M0.550508 1.516V0.2875H4.45051V1.516H0.550508Z'
-							fill='black'
-						/>
-					</svg>
-				</button>
+			{!isSummaryPdt ? (
+				<div className={c['cart-item-right']}>
+					<button className={c.minus}>
+						<svg
+							width='5'
+							height='2'
+							viewBox='0 0 5 2'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+								opacity='0.25'
+								d='M0.550508 1.516V0.2875H4.45051V1.516H0.550508Z'
+								fill='black'
+							/>
+						</svg>
+					</button>
 
-				<span>1</span>
+					<span>{quantity}</span>
 
-				<button className={c.plus}>
-					<svg
-						width='7'
-						height='7'
-						viewBox='0 0 7 7'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'>
-						<path
-							opacity='0.25'
-							d='M2.89362 6.258V3.931H0.566621V2.7025H2.89362V0.382H4.12212V2.7025H6.43612V3.931H4.12212V6.258H2.89362Z'
-							fill='black'
-						/>
-					</svg>
-				</button>
-			</div>
+					<button className={c.plus}>
+						<svg
+							width='7'
+							height='7'
+							viewBox='0 0 7 7'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'>
+							<path
+								opacity='0.25'
+								d='M2.89362 6.258V3.931H0.566621V2.7025H2.89362V0.382H4.12212V2.7025H6.43612V3.931H4.12212V6.258H2.89362Z'
+								fill='black'
+							/>
+						</svg>
+					</button>
+				</div>
+			) : (
+				<h4 className={c.qty}>x{quantity}</h4>
+			)}
 		</li>
 	)
 }

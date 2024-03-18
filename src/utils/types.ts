@@ -33,4 +33,5 @@ export interface ICartItem {
 	img: string
 	price: number
 	quantity: number
+	isSummaryPdt?: boolean
 }

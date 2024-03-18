@@ -43,7 +43,7 @@
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				gap: max(1.5rem, 18px);
-				margin-top: max(1rem, 14px);
+				margin-top: max(1rem, 20px);
 			}
 
 			&-billing {
@@ -54,7 +54,7 @@
 				margin-top: max(3rem, 30px);
 
 				.address {
-					margin-top: max(1rem, 14px);
+					margin-top: max(1rem, 20px);
 				}
 			}
 
@@ -139,6 +139,80 @@
 						@extend %font-15;
 						opacity: 0.5;
 						line-height: 1.5;
+					}
+				}
+			}
+		}
+	}
+
+	&-summary {
+		padding: max(2rem, 24px);
+		background: var(--white);
+		border-radius: max(8px, 0.5rem);
+		height: max-content;
+		position: sticky;
+		top: 6rem;
+
+		h3 {
+			@extend %font-18;
+			letter-spacing: 1.29px;
+			text-transform: uppercase;
+		}
+
+		ul {
+			margin: max(2rem, 24px) 0;
+			display: grid;
+			gap: max(1.5rem, 18px);
+		}
+
+		&-info {
+			@extend %jcsb;
+			margin-bottom: max(1rem, 14px);
+			p {
+				@extend %font-15;
+				text-transform: uppercase;
+				opacity: 0.5;
+			}
+
+			h4 {
+				@extend %font-18;
+				&.total {
+					color: var(--dark-orange);
+				}
+			}
+			&:last-child {
+				margin-top: max(2rem, 24px);
+			}
+		}
+
+		button {
+			margin-top: max(2rem, 24px);
+			width: 100%;
+		}
+	}
+
+	@include respondMax('tablet2x') {
+		&-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@include respondMax('mobile2x') {
+		&-grid {
+			grid-template-columns: 1fr;
+			&-left {
+				&-grid {
+					grid-template-columns: 1fr;
+				}
+				&-payment {
+					&-top {
+						grid-template-columns: 1fr;
+						gap: 20px;
+						margin-top: 20px;
+					}
+					.cash {
+						flex-direction: column;
+						margin-top: 28px;
 					}
 				}
 			}
