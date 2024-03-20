@@ -14,7 +14,13 @@ import cn from '@/utils/cn'
 
 import c from './Cart.module.scss'
 
-export const CartItem = ({ product }: { product: ICartItem }) => {
+export const CartItem = ({
+	product,
+	isSummaryPdt,
+}: {
+	product: ICartItem
+	isSummaryPdt?: boolean
+}) => {
 	const [unit, setUnit] = useState<number>(product.quantity)
 
 	const cartItems = useCartStore((state) => state.cartItems)
@@ -39,7 +45,7 @@ export const CartItem = ({ product }: { product: ICartItem }) => {
 				</div>
 			</div>
 
-			{!product.isSummaryPdt ? (
+			{!isSummaryPdt ? (
 				<div className={c['cart-item-right']}>
 					<CartUnit id={product.id} unit={product.quantity} setUnit={setUnit} />
 				</div>
@@ -71,7 +77,7 @@ const Cart = () => {
 				onClick={(e) => e.stopPropagation()}>
 				<header>
 					<h3>
-						cart (<span>3</span>)
+						cart (<span>{cartItems.length}</span>)
 					</h3>
 
 					<button onClick={() => clearCart()}>Remove all</button>

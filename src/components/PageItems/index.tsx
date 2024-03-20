@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { products } from '@/utils/data'
 import { IProduct } from '@/utils/types'
 import { formatNum } from '@/utils'

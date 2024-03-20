@@ -1,3 +1,4 @@
+import { useCartStore } from '@/store'
 import { CartItem } from '@/components/Cart'
 
 import Buttons from '@/components/Buttons'
@@ -6,28 +7,17 @@ import cn from '@/utils/cn'
 import c from './checkout.module.scss'
 
 const Summary = () => {
+	const cartItems = useCartStore((state) => state.cartItems)
+
 	return (
 		<div className={c['checkout-summary']}>
 			<h3>Summary</h3>
 
-			{/* <ul>
-				<CartItem
-					img='/images/headphones/xx59.png'
-					name='xx59'
-					price={2999}
-					quantity={1}
-					isSummaryPdt
-
-				/>
-
-				<CartItem
-					img='/images/headphones/xx99-mark-i.png'
-					name='xx59'
-					price={2999}
-					quantity={2}
-					isSummaryPdt
-				/>
-			</ul> */}
+			<ul>
+				{cartItems.map((item) => (
+					<CartItem key={item.id} product={item} isSummaryPdt />
+				))}
+			</ul>
 
 			<div className={c['checkout-summary-info']}>
 				<p>TOTAL</p>
