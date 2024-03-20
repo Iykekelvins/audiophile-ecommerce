@@ -4,6 +4,7 @@ export const products: IProduct[] = [
 	{
 		id: 1,
 		slug: 'xx99-mark-ii-headphones',
+		short_name: 'XX99 MK II',
 		category: 'headphones',
 		name: 'XX99 Mark II Headphones',
 		info: 'The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.',
@@ -65,6 +66,7 @@ export const products: IProduct[] = [
 	{
 		id: 2,
 		slug: 'xx99-mark-i-headphones',
+		short_name: 'XX99 MK I',
 		category: 'headphones',
 		name: 'XX99 Mark I Headphones',
 		info: 'As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.',
@@ -122,6 +124,7 @@ export const products: IProduct[] = [
 	{
 		id: 3,
 		slug: 'xx59-headphones',
+		short_name: 'XX59',
 		category: 'headphones',
 		name: 'XX59 Headphones',
 		info: 'Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.',
@@ -179,6 +182,7 @@ export const products: IProduct[] = [
 	{
 		id: 4,
 		slug: 'zx9-speaker',
+		short_name: 'ZX9',
 		category: 'speakers',
 		name: 'ZX9 SPEAKER',
 		info: 'Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.',
@@ -240,6 +244,7 @@ export const products: IProduct[] = [
 	{
 		id: 5,
 		slug: 'zx7-speaker',
+		short_name: 'ZX7',
 		category: 'speakers',
 		name: 'ZX7 SPEAKER',
 		info: 'Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.',
@@ -301,6 +306,7 @@ export const products: IProduct[] = [
 	{
 		id: 6,
 		slug: 'yx1-earphones',
+		short_name: 'YX1',
 		category: 'earphones',
 		name: 'YX1 WIRELESS EARPHONES',
 		info: 'Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.',

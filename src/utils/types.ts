@@ -1,5 +1,6 @@
 export interface IProduct {
 	category: string
+	short_name: string
 	slug: string
 	name: string
 	info: string
@@ -29,6 +30,7 @@ export interface IProduct {
 }
 
 export interface ICartItem {
+	id?: number
 	name: string
 	img: string
 	price: number

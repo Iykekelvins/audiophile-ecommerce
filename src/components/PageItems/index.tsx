@@ -1,6 +1,10 @@
+'use client'
+
+import { useMemo, useState } from 'react'
 import { products } from '@/utils/data'
 import { IProduct } from '@/utils/types'
 import { formatNum } from '@/utils'
+import { Type, useCartStore } from '@/store'
 
 import Image from 'next/image'
 import Buttons from '../Buttons'
@@ -9,6 +13,69 @@ import cn from '@/utils/cn'
 
 import c from './PageItems.module.scss'
 
+export const CartUnit = ({
+	id,
+	unit,
+	setUnit,
+}: {
+	id: number
+	unit: number
+	setUnit: (e: any) => void
+}) => {
+	const updateItem = useCartStore((state) => state.updateItem)
+	const removeItem = useCartStore((state) => state.removeItem)
+
+	const updateUnitCount = (type: Type) => {
+		if (type === 'add') {
+			setUnit((unit: number) => unit + 1)
+
+			updateItem(id, 'add')
+		} else {
+			if (unit !== 1) {
+				setUnit((unit: number) => unit - 1)
+
+				updateItem(id, 'subtract')
+			} else {
+				removeItem(id)
+			}
+		}
+	}
+
+	return (
+		<>
+			<button className={c.minus} onClick={() => updateUnitCount('subtract')}>
+				<svg
+					width='5'
+					height='2'
+					viewBox='0 0 5 2'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'>
+					<path
+						opacity='0.25'
+						d='M0.550508 1.516V0.2875H4.45051V1.516H0.550508Z'
+						fill='black'
+					/>
+				</svg>
+			</button>
+			<span>{unit}</span>
+			<button className={c.plus} onClick={() => updateUnitCount('add')}>
+				<svg
+					width='7'
+					height='7'
+					viewBox='0 0 7 7'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'>
+					<path
+						opacity='0.25'
+						d='M2.89362 6.258V3.931H0.566621V2.7025H2.89362V0.382H4.12212V2.7025H6.43612V3.931H4.12212V6.258H2.89362Z'
+						fill='black'
+					/>
+				</svg>
+			</button>
+		</>
+	)
+}
+
 export const PageItem = ({
 	product,
 	qty,
@@ -16,6 +83,29 @@ export const PageItem = ({
 	product: IProduct | any
 	qty?: boolean
 }) => {
+	const cartItems = useCartStore((state) => state.cartItems)
+	const addItem = useCartStore((state) => state.addItem)
+
+	const isItemInCart = cartItems.find((item) => item.id === product.id)
+
+	// number of units of particular product user wants to buy
+	const [unit, setUnit] = useState<number>(1)
+
+	const handleAddToCart = () =>
+		!isItemInCart
+			? addItem({
+					short_name: product.short_name,
+					id: product.id,
+					img: product.img,
+					price: product.price,
+					quantity: unit,
+			  })
+			: null
+
+	// useMemo(() => {
+	// 	if (cartItems.length === 0) setUnit((unit) => (unit = 1))
+	// }, [cartItems, setUnit])
+
 	return (
 		<li className={cn(c['products-item'], qty ? c.qty : '')}>
 			<div className={c['products-item-img']}>
@@ -78,38 +168,16 @@ export const PageItem = ({
 
 						<footer>
 							<div>
-								<button className={c.minus}>
-									<svg
-										width='5'
-										height='2'
-										viewBox='0 0 5 2'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'>
-										<path
-											opacity='0.25'
-											d='M0.550508 1.516V0.2875H4.45051V1.516H0.550508Z'
-											fill='black'
-										/>
-									</svg>
-								</button>
-								<span>1</span>
-								<button className={c.plus}>
-									<svg
-										width='7'
-										height='7'
-										viewBox='0 0 7 7'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'>
-										<path
-											opacity='0.25'
-											d='M2.89362 6.258V3.931H0.566621V2.7025H2.89362V0.382H4.12212V2.7025H6.43612V3.931H4.12212V6.258H2.89362Z'
-											fill='black'
-										/>
-									</svg>
-								</button>
+								<CartUnit
+									id={product.id}
+									unit={!isItemInCart ? unit : isItemInCart.quantity}
+									setUnit={setUnit}
+								/>
 							</div>
 
-							<Buttons type='primary'>ADD TO CART</Buttons>
+							<Buttons type='primary' onClick={() => handleAddToCart()}>
+								ADD TO CART
+							</Buttons>
 						</footer>
 					</div>
 				)}
