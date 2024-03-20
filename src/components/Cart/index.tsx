@@ -6,6 +6,7 @@ import { formatNum } from '@/utils'
 import { animateCart } from '@/utils/animations'
 import { useCartStore } from '@/store'
 import { CartUnit } from '../PageItems'
+import { ICartItem } from '@/utils/types'
 
 import Image from 'next/image'
 import Buttons from '../Buttons'
@@ -13,7 +14,7 @@ import cn from '@/utils/cn'
 
 import c from './Cart.module.scss'
 
-export const CartItem = ({ product }: { product: any }) => {
+export const CartItem = ({ product }: { product: ICartItem }) => {
 	const [unit, setUnit] = useState<number>(product.quantity)
 
 	const cartItems = useCartStore((state) => state.cartItems)
@@ -24,14 +25,17 @@ export const CartItem = ({ product }: { product: any }) => {
 		<li className={c['cart-item']}>
 			<div className={c['cart-item-left']}>
 				<div className={c['cart-item-left-img']}>
-					<Image src={product.img} width={40} height={45} alt={`image of our ${name}`} />
+					<Image
+						src={product.img}
+						width={40}
+						height={45}
+						alt={`image of our ${product.name}`}
+					/>
 				</div>
 
 				<div>
 					<h4>{product.short_name}</h4>
-					<h5>
-						${formatNum(product.price * (!isItemInCart ? 1 : isItemInCart?.quantity))}
-					</h5>
+					<h5>${formatNum(product.price * product.quantity)}</h5>
 				</div>
 			</div>
 
@@ -74,7 +78,7 @@ const Cart = () => {
 				</header>
 
 				<ul>
-					{cartItems.map((item) => (
+					{cartItems.map((item: ICartItem) => (
 						<CartItem key={item.id} product={item} />
 					))}
 				</ul>

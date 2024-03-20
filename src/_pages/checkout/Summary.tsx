@@ -10,13 +10,14 @@ const Summary = () => {
 		<div className={c['checkout-summary']}>
 			<h3>Summary</h3>
 
-			<ul>
+			{/* <ul>
 				<CartItem
 					img='/images/headphones/xx59.png'
 					name='xx59'
 					price={2999}
 					quantity={1}
 					isSummaryPdt
+
 				/>
 
 				<CartItem
@@ -26,7 +27,7 @@ const Summary = () => {
 					quantity={2}
 					isSummaryPdt
 				/>
-			</ul>
+			</ul> */}
 
 			<div className={c['checkout-summary-info']}>
 				<p>TOTAL</p>

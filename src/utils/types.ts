@@ -30,9 +30,10 @@ export interface IProduct {
 }
 
 export interface ICartItem {
-	id?: number
 	name: string
+	short_name: string
 	img: string
+	id: number
 	price: number
 	quantity: number
 	isSummaryPdt?: boolean

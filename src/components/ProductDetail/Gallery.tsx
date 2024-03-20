@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import c from './ProductDetail.module.scss'
 
-const Gallery = ({ product }: { product: IProduct | any }) => {
+const Gallery = ({ product }: { product: IProduct }) => {
 	return (
 		<div className={c['details-gallery']}>
 			<div className={c['details-gallery-left']}>

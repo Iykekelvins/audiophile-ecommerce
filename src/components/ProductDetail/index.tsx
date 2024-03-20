@@ -13,7 +13,7 @@ import c from './ProductDetail.module.scss'
 const ProductDetail = ({ slug }: { slug: string }) => {
 	const router = useRouter()
 
-	const product = products.find((item) => item.slug === slug)
+	const product: any = products.find((item) => item?.slug === slug)
 
 	return (
 		<div className={c.details}>

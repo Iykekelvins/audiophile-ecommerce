@@ -1,21 +1,22 @@
+import { ICartItem } from '@/utils/types'
 import { create } from 'zustand'
 
 export type Type = 'add' | 'subtract'
 
-type CartItem = {
-	short_name: string
-	img: string
-	price: number
-	id: number
-	quantity: number
-}
+// type CartItem = {
+// 	short_name: string
+// 	img: string
+// 	price: number
+// 	id: number
+// 	quantity: number
+// }
 
 type State = {
-	cartItems: CartItem[]
+	cartItems: ICartItem[]
 }
 
 type Actions = {
-	addItem: ({ ...props }: CartItem) => void
+	addItem: ({ ...props }: ICartItem) => void
 	updateItem: (id: number, type: Type) => void
 	removeItem: (id: number) => void
 	clearCart: () => void

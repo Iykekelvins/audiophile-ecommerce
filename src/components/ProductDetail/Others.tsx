@@ -6,13 +6,13 @@ import Link from 'next/link'
 
 import c from './ProductDetail.module.scss'
 
-const Others = ({ product }: { product: IProduct | any }) => {
+const Others = ({ product }: { product: IProduct }) => {
 	return (
 		<div className={c['details-others']}>
 			<h2>you may also like</h2>
 
 			<ul>
-				{product.others.map((item: any) => (
+				{product.others.map((item) => (
 					<li key={item.name} className={c['details-others-item']}>
 						<div className={c['details-others-item-img']}>
 							<Image

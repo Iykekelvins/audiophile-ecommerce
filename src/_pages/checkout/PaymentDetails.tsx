@@ -2,10 +2,10 @@
 
 import { useState } from 'react'
 
+import Inputs from '@/components/Inputs'
 import cn from '@/utils/cn'
 
 import c from './checkout.module.scss'
-import Inputs from '@/components/Inputs'
 
 const PaymentDetails = () => {
 	const [selected, setSelected] = useState('e-Money')

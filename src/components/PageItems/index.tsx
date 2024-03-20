@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { products } from '@/utils/data'
 import { IProduct } from '@/utils/types'
 import { formatNum } from '@/utils'
@@ -76,13 +76,7 @@ export const CartUnit = ({
 	)
 }
 
-export const PageItem = ({
-	product,
-	qty,
-}: {
-	product: IProduct | any
-	qty?: boolean
-}) => {
+export const PageItem = ({ product, qty }: { product: IProduct; qty?: boolean }) => {
 	const cartItems = useCartStore((state) => state.cartItems)
 	const addItem = useCartStore((state) => state.addItem)
 
@@ -94,17 +88,18 @@ export const PageItem = ({
 	const handleAddToCart = () =>
 		!isItemInCart
 			? addItem({
-					short_name: product.short_name,
-					id: product.id,
 					img: product.img,
+					short_name: product.short_name,
+					name: product.name,
 					price: product.price,
 					quantity: unit,
+					id: product.id,
 			  })
 			: null
 
-	// useMemo(() => {
-	// 	if (cartItems.length === 0) setUnit((unit) => (unit = 1))
-	// }, [cartItems, setUnit])
+	useMemo(() => {
+		if (cartItems.length === 0) setUnit(1)
+	}, [cartItems.length])
 
 	return (
 		<li className={cn(c['products-item'], qty ? c.qty : '')}>

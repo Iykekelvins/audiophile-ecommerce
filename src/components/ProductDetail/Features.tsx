@@ -2,7 +2,7 @@ import { IProduct } from '@/utils/types'
 
 import c from './ProductDetail.module.scss'
 
-const Features = ({ product }: { product: IProduct | any }) => {
+const Features = ({ product }: { product: IProduct }) => {
 	return (
 		<div className={c['details-features']}>
 			<div className={c['details-features-grid']}>
