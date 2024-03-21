@@ -41,7 +41,7 @@ export const CartItem = ({
 
 				<div>
 					<h4>{product.short_name}</h4>
-					<h5>${formatNum(product.price * product.quantity)}</h5>
+					<h5>$ {formatNum(product.price * product.quantity)}</h5>
 				</div>
 			</div>
 
@@ -70,6 +70,12 @@ const Cart = () => {
 	const cartItems = useCartStore((state) => state.cartItems)
 	const clearCart = useCartStore((state) => state.clearCart)
 
+	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
+
+	// if (cartItems.length === 0) {
+	// 	return <div className={c[.cart]}></div>
+	// }
+
 	return (
 		<div className={cn(c.cart, 'cart')} onClick={() => animateCart()}>
 			<div
@@ -80,7 +86,7 @@ const Cart = () => {
 						cart (<span>{cartItems.length}</span>)
 					</h3>
 
-					<button onClick={() => clearCart()}>Remove all</button>
+					{<button onClick={() => clearCart()}>Remove all</button>}
 				</header>
 
 				<ul>
@@ -92,7 +98,7 @@ const Cart = () => {
 				<footer>
 					<div>
 						<h4>TOTAL</h4>
-						<h4>$ 5,396</h4>
+						<h4>$ {formatNum(total)}</h4>
 					</div>
 
 					<Buttons type='primary' onClick={() => handleCloseCart()}>
