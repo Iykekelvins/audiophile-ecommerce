@@ -171,7 +171,7 @@ export const PageItem = ({ product, qty }: { product: IProduct; qty?: boolean })
 							</div>
 
 							<Buttons type='primary' onClick={() => handleAddToCart()}>
-								ADD TO CART
+								{!isItemInCart ? 'ADD TO CART' : 'ADDED'}
 							</Buttons>
 						</footer>
 					</div>
