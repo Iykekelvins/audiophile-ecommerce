@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { formatNum } from '@/utils'
 import { animateCart } from '@/utils/animations'
 import { useCartStore } from '@/store'
@@ -58,7 +58,12 @@ export const CartItem = ({
 
 const Cart = () => {
 	const router = useRouter()
-	const pathname = window.location.pathname
+	const pathname = usePathname()
+
+	const cartItems = useCartStore((state) => state.cartItems)
+	const clearCart = useCartStore((state) => state.clearCart)
+
+	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
 	const handleCloseCart = () => {
 		animateCart()
@@ -67,11 +72,6 @@ const Cart = () => {
 			router.push('/checkout')
 		}, 500)
 	}
-
-	const cartItems = useCartStore((state) => state.cartItems)
-	const clearCart = useCartStore((state) => state.clearCart)
-
-	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
 	if (cartItems.length === 0) {
 		return (

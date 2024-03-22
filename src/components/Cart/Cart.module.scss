@@ -19,6 +19,8 @@
 		background: var(--white);
 		max-width: max(23.563rem, 377px);
 		width: 100%;
+		max-height: 80vh;
+		overflow-y: auto;
 		border-radius: max(8px, 0.5rem);
 		padding: max(2rem, 24px);
 

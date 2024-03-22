@@ -6,8 +6,12 @@ import Buttons from '@/components/Buttons'
 import cn from '@/utils/cn'
 
 import c from './checkout.module.scss'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { animateCart } from '@/utils/animations'
 
 const Summary = () => {
+	const router = useRouter()
 	const cartItems = useCartStore((state) => state.cartItems)
 
 	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -17,6 +21,15 @@ const Summary = () => {
 	const shipping = 50
 
 	const grandTotal = total + vat + shipping
+
+	useEffect(() => {
+		if (cartItems.length === 0) {
+			animateCart()
+			setTimeout(() => {
+				router.replace('/')
+			}, 500)
+		}
+	}, [cartItems, router])
 
 	return (
 		<div className={c['checkout-summary']}>

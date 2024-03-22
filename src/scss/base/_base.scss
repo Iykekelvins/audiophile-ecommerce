@@ -21,10 +21,6 @@ html {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 
-	&::-webkit-scrollbar {
-		display: none;
-	}
-
 	font-size: calc(100vw / 1440 * 16);
 	line-height: 1;
 
@@ -50,6 +46,19 @@ html {
 body {
 	font-family: 'Manrope', sans-serif;
 	font-weight: normal;
+	&::-webkit-scrollbar {
+		width: 8px;
+		position: absolute;
+	}
+
+	// &::-webkit-scrollbar-track {
+	// 	position: fixed;
+	// }
+
+	// &::-webkit-scrollbar-thumb {
+	// 	background-color: var(--dark-orange);
+	// 	border-radius: 8px;
+	// }
 }
 
 input[type='number'] {

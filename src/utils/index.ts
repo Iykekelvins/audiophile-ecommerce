@@ -22,3 +22,6 @@ export const formatNum = (number: number | string) => {
 		)
 	)
 }
+
+export const capitalize = (s: string) =>
+	s?.toLocaleLowerCase().replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
