@@ -41,7 +41,7 @@ export const CartItem = ({
 
 				<div>
 					<h4>{product.short_name}</h4>
-					<h5>$ {formatNum(product.price * product.quantity)}</h5>
+					<h5>$ {formatNum(product.price)}</h5>
 				</div>
 			</div>
 
@@ -58,6 +58,7 @@ export const CartItem = ({
 
 const Cart = () => {
 	const router = useRouter()
+	const pathname = window.location.pathname
 
 	const handleCloseCart = () => {
 		animateCart()
@@ -72,9 +73,36 @@ const Cart = () => {
 
 	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
-	// if (cartItems.length === 0) {
-	// 	return <div className={c[.cart]}></div>
-	// }
+	if (cartItems.length === 0) {
+		return (
+			<div className={cn(c.cart, 'cart')} onClick={() => animateCart()}>
+				<div
+					className={cn(c['cart-container'], c['empty'], 'cart-container')}
+					onClick={(e) => e.stopPropagation()}>
+					<Image
+						src='/icons/cart-empty.svg'
+						height={100}
+						width={100}
+						alt='empty cart icon'
+					/>
+
+					<p>Your cart is empty</p>
+
+					<Buttons
+						type='primary'
+						onClick={() => {
+							animateCart()
+
+							if (pathname === '/checkout') {
+								router.push('/')
+							}
+						}}>
+						Continue Shopping
+					</Buttons>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className={cn(c.cart, 'cart')} onClick={() => animateCart()}>

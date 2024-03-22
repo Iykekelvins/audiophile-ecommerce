@@ -64,6 +64,20 @@
 				width: 100%;
 			}
 		}
+
+		&.empty {
+			@extend %center;
+			flex-direction: column;
+			gap: max(1.5rem, 18px);
+			p {
+				@extend %font-15;
+				font-weight: 700;
+				opacity: 0.5;
+			}
+			button {
+				width: 100%;
+			}
+		}
 	}
 
 	&-item {
