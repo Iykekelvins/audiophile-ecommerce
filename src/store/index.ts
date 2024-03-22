@@ -1,15 +1,8 @@
 import { ICartItem } from '@/utils/types'
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
 export type Type = 'add' | 'subtract'
-
-// type CartItem = {
-// 	short_name: string
-// 	img: string
-// 	price: number
-// 	id: number
-// 	quantity: number
-// }
 
 type State = {
 	cartItems: ICartItem[]
@@ -22,32 +15,37 @@ type Actions = {
 	clearCart: () => void
 }
 
-export const useCartStore = create<State & Actions>()((set) => ({
-	cartItems: [],
-	addItem: ({ ...props }) =>
-		set((state) => ({
-			cartItems: [...state.cartItems, { ...props }],
-		})),
-
-	updateItem: (id: number, type: Type) =>
-		set((state) => ({
-			cartItems: state.cartItems.map((item) =>
-				item.id === id
-					? {
-							...item,
-							quantity: type === 'add' ? item.quantity + 1 : (item.quantity -= 1),
-					  }
-					: item
-			),
-		})),
-
-	removeItem: (id: number) =>
-		set((state) => ({
-			cartItems: state.cartItems.filter((item) => item.id !== id),
-		})),
-
-	clearCart: () =>
-		set(() => ({
+export const useCartStore = create<State & Actions>()(
+	persist(
+		(set) => ({
 			cartItems: [],
-		})),
-}))
+			addItem: ({ ...props }) =>
+				set((state) => ({
+					cartItems: [...state.cartItems, { ...props }],
+				})),
+
+			updateItem: (id: number, type: Type) =>
+				set((state) => ({
+					cartItems: state.cartItems.map((item) =>
+						item.id === id
+							? {
+									...item,
+									quantity: type === 'add' ? item.quantity + 1 : item.quantity - 1,
+							  }
+							: item
+					),
+				})),
+
+			removeItem: (id: number) =>
+				set((state) => ({
+					cartItems: state.cartItems.filter((item) => item.id !== id),
+				})),
+
+			clearCart: () =>
+				set(() => ({
+					cartItems: [],
+				})),
+		}),
+		{ name: 'audiophile-store', skipHydration: true }
+	)
+)

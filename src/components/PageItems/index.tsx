@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { products } from '@/utils/data'
 import { IProduct } from '@/utils/types'
 import { formatNum } from '@/utils'
@@ -100,6 +100,10 @@ export const PageItem = ({ product, qty }: { product: IProduct; qty?: boolean })
 	useMemo(() => {
 		if (cartItems.length === 0) setUnit(1)
 	}, [cartItems.length])
+
+	useEffect(() => {
+		useCartStore.persist.rehydrate()
+	}, [])
 
 	return (
 		<li className={cn(c['products-item'], qty ? c.qty : '')}>
