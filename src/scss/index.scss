@@ -1,4 +1,5 @@
 @import './base/reset';
+@import './shared/fonts';
 
 @import 'utils/variables';
 @import 'utils/functions';
@@ -7,5 +8,4 @@
 
 @import './base/base';
 
-@import 'shared/fonts';
-@import 'shared/typography';
+@import './shared/typography';
