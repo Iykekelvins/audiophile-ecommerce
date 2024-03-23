@@ -3,6 +3,8 @@ import '../scss/index.scss'
 import type { Metadata } from 'next'
 import { metaDataOptions } from '@/utils/metadata'
 
+import { Manrope } from 'next/font/google'
+
 import Lenis from '@/components/Lenis'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -21,6 +23,8 @@ export const metadata: Metadata = {
 	...metaDataOptions,
 }
 
+const manrope = Manrope({ subsets: ['latin'] })
+
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -30,7 +34,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<Lenis>
 				<body>
-					<main>
+					<main className={manrope.className}>
 						<>
 							<Navbar />
 							<Cart />
