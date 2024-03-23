@@ -11,7 +11,7 @@ export const animateCart = () => {
 
 	const checkoutModal: HTMLDivElement | null = document.querySelector('.checkout-modal')
 
-	if (!checkoutModal?.style.opacity || checkoutModal?.style.opacity === '1') return
+	if (checkoutModal?.style.opacity === '1') return
 
 	if (!isOpen) {
 		cartTl
