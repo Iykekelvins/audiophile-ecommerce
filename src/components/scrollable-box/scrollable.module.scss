@@ -1,7 +1,12 @@
 .hi {
+	display: grid;
+	align-items: center;
+	justify-content: center;
 	flex-grow: 1;
 	position: relative;
 	overflow-y: scroll;
+	max-height: 80vh;
+	width: 100%;
 	scrollbar-width: none !important;
 	-ms-overflow-style: none;
 

@@ -232,16 +232,14 @@
 	display: flex;
 	opacity: 0;
 	pointer-events: none;
-	padding: max(3rem, 40px) max(1.5rem, 24px);
+	padding: max(3rem, 40px) max(1.5rem, 24px) 0;
 
 	&-container {
 		background: var(--white);
-		max-width: max(33.75rem, 540px);
+		min-width: max(33.75rem, 327px);
 		border-radius: max(8px, 0.5rem);
 		padding: max(2rem, 24px);
 		width: 100%;
-		max-height: 80vh;
-		overflow: auto;
 
 		h2 {
 			@extend %font-32;
@@ -270,7 +268,8 @@
 				&-top {
 					@extend %aic;
 					padding-bottom: max(0.5rem, 8px);
-					gap: max(4rem, 32px);
+					gap: max(2rem, 24px);
+					padding-left: max(0.5rem, 8px);
 
 					h4 {
 						@extend %font-15;

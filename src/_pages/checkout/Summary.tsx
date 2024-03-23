@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react'
 import { useCartStore } from '@/store'
 import { CartItem } from '@/components/Cart'
 import { formatNum } from '@/utils'
-import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { animateCart } from '@/utils/animations'
+import { animateModal } from '@/utils/animations'
 
 import Buttons from '@/components/Buttons'
 import cn from '@/utils/cn'
@@ -12,6 +12,8 @@ import c from './checkout.module.scss'
 
 const Summary = () => {
 	const router = useRouter()
+	const [loading, setLoading] = useState(false)
+
 	const cartItems = useCartStore((state) => state.cartItems)
 	const setTotal = useCartStore((state) => state.setTotal)
 
@@ -23,9 +25,17 @@ const Summary = () => {
 
 	const grandTotal = total + vat + shipping
 
+	const handleModal = () => {
+		setLoading(true)
+
+		setTimeout(() => {
+			animateModal()
+			setLoading(false)
+		}, 1000)
+	}
+
 	useEffect(() => {
 		if (cartItems.length === 0) {
-			animateCart()
 			setTimeout(() => {
 				router.replace('/')
 			}, 500)
@@ -64,8 +74,8 @@ const Summary = () => {
 				<h4>$ {formatNum(grandTotal)}</h4>
 			</div>
 
-			<Buttons type='primary' onClick={() => animateCart('checkout')}>
-				CONTINUE & PAY
+			<Buttons type='primary' onClick={() => handleModal()}>
+				{!loading ? 'CONTINUE & PAY' : <div className='spinner'></div>}
 			</Buttons>
 		</div>
 	)
