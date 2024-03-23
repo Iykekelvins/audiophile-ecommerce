@@ -219,3 +219,145 @@
 		}
 	}
 }
+
+.modal {
+	@extend %center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	display: flex;
+	opacity: 0;
+	pointer-events: none;
+	padding: max(3rem, 40px) max(1.5rem, 24px);
+
+	&-container {
+		background: var(--white);
+		max-width: max(33.75rem, 540px);
+		border-radius: max(8px, 0.5rem);
+		padding: max(2rem, 24px);
+		width: 100%;
+		max-height: 80vh;
+		overflow: auto;
+
+		h2 {
+			@extend %font-32;
+			font-weight: 700;
+			padding-top: max(2rem, 24px);
+		}
+
+		p {
+			@extend %font-15;
+			opacity: 0.5;
+			line-height: 1.5;
+			padding-top: max(1rem, 14px);
+		}
+
+		&-overview {
+			display: grid;
+			grid-template-columns: 1.2fr 1fr;
+			margin-top: max(1.5rem, 18px);
+
+			&-left {
+				background: #f1f1f1;
+				padding: max(1.5rem, 18px);
+				border-top-left-radius: max(8px, 0.5rem);
+				border-bottom-left-radius: max(8px, 0.5rem);
+
+				&-top {
+					@extend %aic;
+					padding-bottom: max(0.5rem, 8px);
+					gap: max(4rem, 32px);
+
+					h4 {
+						@extend %font-15;
+						font-weight: 700;
+					}
+
+					p {
+						@extend %font-14;
+						padding-top: max(0.5rem, 8px);
+						opacity: 0.5;
+						font-weight: 700;
+						&.qty {
+							padding-top: 0;
+						}
+					}
+
+					&-right {
+						display: flex;
+						justify-content: space-between;
+						align-items: baseline;
+						width: 100%;
+					}
+				}
+				ul {
+					display: grid;
+					gap: max(1rem, 14px);
+				}
+
+				.line {
+					height: 0.8px;
+					width: 100%;
+					background: rgba(0, 0, 0, 0.2);
+				}
+
+				.others {
+					text-align: center;
+					@extend %font-15;
+					padding-top: max(0.5rem, 8px);
+					opacity: 0.5;
+					font-weight: 700;
+					width: 100%;
+				}
+			}
+
+			&-right {
+				background: var(--black);
+				padding: max(1.5rem, 18px);
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
+				border-top-right-radius: max(8px, 0.5rem);
+				border-bottom-right-radius: max(8px, 0.5rem);
+
+				h4 {
+					@extend %font-15;
+					color: var(--white);
+					opacity: 0.5;
+				}
+
+				p {
+					@extend %font-18;
+					font-weight: 700;
+					color: var(--white);
+					opacity: 1;
+				}
+
+				&.justify {
+					justify-content: flex-end;
+				}
+			}
+
+			@include respondMax('mobile3x') {
+				grid-template-columns: 1fr;
+
+				&-left {
+					border-radius: 8px 8px 0 0;
+				}
+
+				&-right {
+					border-radius: 0 0 8px 8px;
+				}
+			}
+		}
+		.back {
+			margin-top: max(2rem, 24px);
+			width: 100%;
+		}
+	}
+}

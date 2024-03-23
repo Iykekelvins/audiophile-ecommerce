@@ -9,6 +9,7 @@ import Footer from '@/components/Footer'
 import PreviewProducts from '@/components/PreviewProducts'
 import AudioGear from '@/components/AudioGear'
 import Cart from '@/components/Cart'
+import CheckoutModal from '@/_pages/checkout/CheckoutModal'
 
 export const metadata: Metadata = {
 	title: {
@@ -33,6 +34,7 @@ export default function RootLayout({
 						<>
 							<Navbar />
 							<Cart />
+							<CheckoutModal />
 							{children}
 							<PreviewProducts hide />
 							<AudioGear />

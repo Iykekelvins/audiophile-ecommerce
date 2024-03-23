@@ -6,6 +6,7 @@ export type Type = 'add' | 'subtract'
 
 type State = {
 	cartItems: ICartItem[]
+	total: number
 }
 
 type Actions = {
@@ -13,12 +14,14 @@ type Actions = {
 	updateItem: (id: number, type: Type) => void
 	removeItem: (id: number) => void
 	clearCart: () => void
+	setTotal: (total: number) => void
 }
 
 export const useCartStore = create<State & Actions>()(
 	persist(
 		(set) => ({
 			cartItems: [],
+			total: 0,
 			addItem: ({ ...props }) =>
 				set((state) => ({
 					cartItems: [...state.cartItems, { ...props }],
@@ -45,7 +48,12 @@ export const useCartStore = create<State & Actions>()(
 				set(() => ({
 					cartItems: [],
 				})),
+
+			setTotal: (total) =>
+				set(() => ({
+					total,
+				})),
 		}),
-		{ name: 'audiophile-store', skipHydration: true }
+		{ name: 'audiophile-store' }
 	)
 )

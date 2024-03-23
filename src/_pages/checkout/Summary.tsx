@@ -1,18 +1,19 @@
 import { useCartStore } from '@/store'
 import { CartItem } from '@/components/Cart'
 import { formatNum } from '@/utils'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { animateCart } from '@/utils/animations'
 
 import Buttons from '@/components/Buttons'
 import cn from '@/utils/cn'
 
 import c from './checkout.module.scss'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { animateCart } from '@/utils/animations'
 
 const Summary = () => {
 	const router = useRouter()
 	const cartItems = useCartStore((state) => state.cartItems)
+	const setTotal = useCartStore((state) => state.setTotal)
 
 	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -30,6 +31,10 @@ const Summary = () => {
 			}, 500)
 		}
 	}, [cartItems, router])
+
+	useEffect(() => {
+		setTotal(grandTotal)
+	}, [setTotal, grandTotal])
 
 	return (
 		<div className={c['checkout-summary']}>
@@ -59,7 +64,9 @@ const Summary = () => {
 				<h4>$ {formatNum(grandTotal)}</h4>
 			</div>
 
-			<Buttons type='primary'>CONTINUE & PAY</Buttons>
+			<Buttons type='primary' onClick={() => animateCart('checkout')}>
+				CONTINUE & PAY
+			</Buttons>
 		</div>
 	)
 }

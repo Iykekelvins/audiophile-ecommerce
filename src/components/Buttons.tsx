@@ -3,11 +3,12 @@ import { ReactNode } from 'react'
 
 interface IButton {
 	type: 'primary' | 'secondary' | 'tertiary' | 'plain'
+	className?: string
 	onClick?: () => void
 	children: ReactNode
 }
 
-const Buttons = ({ type, onClick, children }: IButton) => {
+const Buttons = ({ type, className, onClick, children }: IButton) => {
 	return (
 		<button
 			className={cn(
@@ -18,7 +19,8 @@ const Buttons = ({ type, onClick, children }: IButton) => {
 					? 'btn-secondary'
 					: type === 'tertiary'
 					? 'btn-tertiary'
-					: 'btn-plain'
+					: 'btn-plain',
+				className
 			)}
 			onClick={onClick}>
 			{children}
