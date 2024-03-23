@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useCartStore } from '@/store'
+import { useMiscStore } from '@/store/misc'
 import { CartItem } from '@/components/Cart'
-import { formatNum } from '@/utils'
+import { emailRegex, formatNum } from '@/utils'
 import { useRouter } from 'next/navigation'
 import { animateModal } from '@/utils/animations'
 
@@ -16,6 +17,9 @@ const Summary = () => {
 
 	const cartItems = useCartStore((state) => state.cartItems)
 	const setTotal = useCartStore((state) => state.setTotal)
+	const payload = useMiscStore((state) => state.payload)
+	const setCheckoutErrors = useMiscStore((state) => state.setCheckoutErrors)
+	const selectedPayment = useMiscStore((state) => state.selectedPayment)
 
 	const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -25,8 +29,27 @@ const Summary = () => {
 
 	const grandTotal = total + vat + shipping
 
-	const handleModal = () => {
+	const errors =
+		payload.name === '' ||
+		payload.email === '' ||
+		payload.phone_number === '' ||
+		payload.address === '' ||
+		payload.zip_code === '' ||
+		payload.city === '' ||
+		payload.country === '' ||
+		!emailRegex.test(payload.email) ||
+		(selectedPayment === 'e-Money' && payload.eMoney === '') ||
+		(selectedPayment === 'e-Money' && payload.eMoneyPin === '')
+
+	const handleCheckout = () => {
 		setLoading(true)
+
+		if (errors) {
+			setCheckoutErrors(true)
+			setLoading(false)
+
+			return
+		}
 
 		setTimeout(() => {
 			animateModal()
@@ -74,7 +97,7 @@ const Summary = () => {
 				<h4>$ {formatNum(grandTotal)}</h4>
 			</div>
 
-			<Buttons type='primary' onClick={() => handleModal()}>
+			<Buttons type='primary' onClick={() => handleCheckout()}>
 				{!loading ? 'CONTINUE & PAY' : <div className='spinner'></div>}
 			</Buttons>
 		</div>

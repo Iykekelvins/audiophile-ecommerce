@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useMiscStore } from '@/store/misc'
 
 import Inputs from '@/components/Inputs'
 import cn from '@/utils/cn'
@@ -8,10 +8,21 @@ import cn from '@/utils/cn'
 import c from './checkout.module.scss'
 
 const PaymentDetails = () => {
-	const [selected, setSelected] = useState('e-Money')
+	const payload = useMiscStore((state) => state.payload)
+	const setPayload = useMiscStore((state) => state.setPayload)
+	const selectedPayment = useMiscStore((state) => state.selectedPayment)
+	const setSelectedPayment = useMiscStore((state) => state.setSelectedPayment)
+	const checkOutErrors = useMiscStore((state) => state.checkOutErrors)
 
-	const [eMoney, setEmoney] = useState('')
-	const [eMoneyPin, setEmoneyPin] = useState('')
+	const handlePayload = (e: any) => {
+		const name = e.target.name
+		const value = e.target.value
+
+		setPayload({
+			...payload,
+			[name]: value,
+		})
+	}
 
 	const methods = ['e-Money', 'Cash on Delivery']
 	return (
@@ -27,9 +38,9 @@ const PaymentDetails = () => {
 							key={method}
 							className={cn(
 								c['checkout-grid-left-payment-top-right-method'],
-								selected === method ? c.selected : ''
+								selectedPayment === method ? c.selected : ''
 							)}
-							onClick={() => setSelected(method)}>
+							onClick={() => setSelectedPayment(method)}>
 							<div>
 								<span></span>
 							</div>
@@ -41,24 +52,26 @@ const PaymentDetails = () => {
 			</div>
 
 			{/* selected payment method info */}
-			{selected === 'e-Money' ? (
+			{selectedPayment === 'e-Money' ? (
 				<div className={c['checkout-grid-left-grid']}>
 					<Inputs
-						name='e-money-number'
-						value={eMoney}
+						name='eMoney'
+						value={payload.eMoney}
 						type='text'
 						label='e-Money Number'
 						placeholder='238521993'
-						onChange={(e) => setEmoney(e.target.value)}
+						onChange={handlePayload}
+						errorTwo={payload.eMoney === '' && checkOutErrors}
 					/>
 
 					<Inputs
-						name='e-money-pin'
-						value={eMoneyPin}
+						name='eMoneyPin'
+						value={payload.eMoneyPin}
 						type='text'
 						label='e-Money Pin'
 						placeholder='6891'
-						onChange={(e) => setEmoneyPin(e.target.value)}
+						onChange={handlePayload}
+						errorTwo={payload.eMoneyPin === '' && checkOutErrors}
 					/>
 				</div>
 			) : (

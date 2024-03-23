@@ -38,3 +38,15 @@ export interface ICartItem {
 	quantity: number
 	isSummaryPdt?: boolean
 }
+
+export interface ICheckout {
+	name: string
+	email: string
+	phone_number: string
+	address: string
+	zip_code: string
+	city: string
+	country: string
+	eMoney: string
+	eMoneyPin: string
+}

@@ -8,16 +8,22 @@ interface IInput {
 	label: string
 	className?: string
 	error?: boolean
+	errorTwo?: boolean
 	type: 'text' | 'number' | 'email'
 	onChange: (e: any) => void
 }
 
 const Inputs = ({ ...props }: IInput) => {
 	return (
-		<div className={cn(c.input, props.error ? c.error : '', props.className)}>
+		<div
+			className={cn(
+				c.input,
+				props.error || props.errorTwo ? c.error : '',
+				props.className
+			)}>
 			<div className={c['input-label']}>
 				<label htmlFor={props.name}>{props.label}</label>
-				<span>Wrong format</span>
+				{props.error && <span>Wrong format</span>}
 			</div>
 
 			<input

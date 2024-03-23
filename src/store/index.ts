@@ -22,6 +22,7 @@ export const useCartStore = create<State & Actions>()(
 		(set) => ({
 			cartItems: [],
 			total: 0,
+
 			addItem: ({ ...props }) =>
 				set((state) => ({
 					cartItems: [...state.cartItems, { ...props }],

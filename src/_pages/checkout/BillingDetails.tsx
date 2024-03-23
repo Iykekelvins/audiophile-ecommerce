@@ -1,17 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useMiscStore } from '@/store/misc'
+import { emailRegex } from '@/utils'
 
 import Inputs from '@/components/Inputs'
 
 import c from './checkout.module.scss'
 
 const BillingDetails = () => {
-	const [payload, setPayload] = useState({
-		name: '',
-		email: '',
-		phone_number: '',
-	})
+	const payload = useMiscStore((state) => state.payload)
+	const setPayload = useMiscStore((state) => state.setPayload)
+	const checkOutErrors = useMiscStore((state) => state.checkOutErrors)
 
 	const handlePayload = (e: any) => {
 		const name = e.target.name
@@ -35,6 +34,7 @@ const BillingDetails = () => {
 					label='Name'
 					onChange={handlePayload}
 					value={payload.name}
+					errorTwo={payload.name === '' && checkOutErrors}
 				/>
 
 				<Inputs
@@ -44,6 +44,8 @@ const BillingDetails = () => {
 					label='Email'
 					onChange={handlePayload}
 					value={payload.email}
+					error={payload.email !== '' && !emailRegex.test(payload.email)}
+					errorTwo={payload.email === '' && checkOutErrors}
 				/>
 
 				<Inputs
@@ -53,6 +55,7 @@ const BillingDetails = () => {
 					label='Phone Number'
 					onChange={handlePayload}
 					value={payload.phone_number}
+					errorTwo={payload.phone_number === '' && checkOutErrors}
 				/>
 			</div>
 		</div>

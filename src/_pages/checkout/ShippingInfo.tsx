@@ -1,18 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useMiscStore } from '@/store/misc'
 
 import Inputs from '@/components/Inputs'
 
 import c from './checkout.module.scss'
 
 const ShippingInfo = () => {
-	const [payload, setPayload] = useState({
-		address: '',
-		zip_code: '',
-		city: '',
-		country: '',
-	})
+	const payload = useMiscStore((state) => state.payload)
+	const setPayload = useMiscStore((state) => state.setPayload)
+	const checkOutErrors = useMiscStore((state) => state.checkOutErrors)
 
 	const handlePayload = (e: any) => {
 		const name = e.target.name
@@ -36,16 +33,18 @@ const ShippingInfo = () => {
 				className={c.address}
 				onChange={handlePayload}
 				value={payload.address}
+				errorTwo={payload.address === '' && checkOutErrors}
 			/>
 
 			<div className={c['checkout-grid-left-grid']}>
 				<Inputs
-					name='email'
+					name='zip_code'
 					placeholder='10001'
 					type='number'
 					label='ZIP Code'
 					onChange={handlePayload}
 					value={payload.zip_code}
+					errorTwo={payload.zip_code === '' && checkOutErrors}
 				/>
 
 				<Inputs
@@ -55,6 +54,7 @@ const ShippingInfo = () => {
 					label='City'
 					onChange={handlePayload}
 					value={payload.city}
+					errorTwo={payload.city === '' && checkOutErrors}
 				/>
 
 				<Inputs
@@ -64,6 +64,7 @@ const ShippingInfo = () => {
 					label='Country'
 					onChange={handlePayload}
 					value={payload.country}
+					errorTwo={payload.country === '' && checkOutErrors}
 				/>
 			</div>
 		</div>
