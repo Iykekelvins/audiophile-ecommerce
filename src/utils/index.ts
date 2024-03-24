@@ -6,7 +6,7 @@ export const scrollOptions: LenisOptions = {
 	orientation: 'vertical',
 	gestureOrientation: 'vertical',
 	smoothWheel: true,
-	wheelMultiplier: 0.5,
+	wheelMultiplier: 0.8,
 	touchMultiplier: 1,
 	infinite: false,
 }
