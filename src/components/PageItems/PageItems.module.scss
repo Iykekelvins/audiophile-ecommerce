@@ -94,6 +94,7 @@
 						button {
 							height: max-content;
 							svg {
+								transform: scale(1.5);
 								path {
 									transition: var(--transition);
 								}
