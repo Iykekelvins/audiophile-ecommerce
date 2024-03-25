@@ -115,8 +115,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-evenly;
-			width: max(6rem, 72px);
-			height: max(28px, 2rem);
+			width: max(6rem, 80px);
+			height: max(35px, 2rem);
 			background: var(--grey);
 			span {
 				@extend %font-13;
