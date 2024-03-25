@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solution URL ](https://audiophile-ecommerce-iykekelvins.vercel.app/)
+- Solution URL: [solution URL ](https://www.frontendmentor.io/solutions/audiophile-ecommerce-app-using-zustand-for-global-state-management-mtFgWZBiT6)
 - Live Site URL: [live site URL](https://audiophile-ecommerce-iykekelvins.vercel.app/)
 
 ### Built with
